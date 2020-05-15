@@ -1,0 +1,34 @@
+### Headers settings
+company: Nikita Teplyakov
+
+### Xcode project settings
+project_name: News
+xcodeproj_path: News.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: News
+
+# The file path for new modules
+project_file_path: News
+
+# The Xcode group path to new modules
+project_group_path: News/Screens
+
+### Tests generation settings section
+# The tests target name
+test_target: NewsTests
+
+# The file path for new tests
+test_file_path: NewsTests
+
+# The Xcode group path to new tests
+test_group_path: NewsTests
+
+### Dependencies settings section
+
+cartfile_path: cartfile
+
+### Templates
+templates:
+- {name: custom_swifty_viper}

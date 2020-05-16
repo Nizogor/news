@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+   <channel>
+      <title>Газета.Ru - Новости дня</title>
+      <link>https://www.gazeta.ru/news/lenta/</link>
+      <description>Новости в режиме он-лайн из всех областей жизни. Собственная информация, а также сообщения крупнейших российских и мировых информационных агентств</description>
+      <pubDate>Sat, 16 May 2020 12:16:08 +0300</pubDate>
+      <language>ru</language>
+      <copyright>Gazeta.Ru</copyright>
+      <webMaster>webmaster@gazeta.ru</webMaster>
+      <ttl>20</ttl>
+      <item>
+         <title>Вакцина от коронавируса может появиться в России к концу лета</title>
+         <link>https://www.gazeta.ru/social/news/2020/05/16/n_14427013.shtml</link>
+         <author>Газета.Ru</author>
+         <pubDate>Sat, 16 May 2020 12:15:32 +0300</pubDate>
+         <description>Вакцину от коронавируса могут зарегистрировать в России уже в августе. Об этом сообщает ТАСС со ссылкой на директора Национального исследовательского центра эпидемиологии и микробиологии имени Гамалеи Александра Гинцбурга. "В августе ...</description>
+         <guid>https://www.gazeta.ru/social/news/2020/05/16/n_14427013.shtml</guid>
+      </item>
+      <item>
+         <title>Крым смягчит ограничения из-за коронавируса с 18 мая</title>
+         <link>https://www.gazeta.ru/social/news/2020/05/16/n_14426995.shtml</link>
+         <author>Газета.Ru</author>
+         <pubDate>Sat, 16 May 2020 12:12:36 +0300</pubDate>
+         <description>Глава республики Сергея Аксенова внес изменения в свой указ "О введении режима повышенной готовности" на территории Крыма. Ранее, с 12 мая, на полуострове вели "масочный режим", а с 18 мая планируется увеличение списка ...</description>
+         <enclosure url="https://img.gazeta.ru/files3/372/12830372/RIAN_2525701.HR-pic905-895x505-18276.jpg" type="image/jpeg" />
+         <guid>https://www.gazeta.ru/social/news/2020/05/16/n_14426995.shtml</guid>
+      </item>
+      <rss2lj:owner xmlns:rss2lj="http://rss2lj.net/NS">gazeta_admin</rss2lj:owner>
+   </channel>
+</rss>

@@ -6,6 +6,6 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
-protocol NetworkServiceProtocol: class {
-
+public protocol NetworkServiceProtocol: class {
+	func downloadNews(urlString: String, completion: @escaping (Result<Data, Error>) -> ())
 }

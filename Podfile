@@ -22,6 +22,9 @@ target 'NewsKit' do
   # Networking
   pod 'Alamofire'
 
+  # Database
+  pod 'RealmSwift'
+
   target 'NewsKitTests' do
     inherit! :search_paths
     # Pods for testing

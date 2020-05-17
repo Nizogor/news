@@ -9,7 +9,7 @@
 import Alamofire
 
 public class NetworkService {
-
+	public init() {}
 }
 
 extension NetworkService: NetworkServiceProtocol {

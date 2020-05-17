@@ -39,8 +39,6 @@ class NewsParserTests: XCTestCase {
 		let sut = NewsParser(data: data)
 		let expectation = XCTestExpectation()
 
-		let waiter = XCTWaiter()
-
 		sut.fetchNews { result in
 			switch result {
 			case .success:
@@ -52,6 +50,7 @@ class NewsParserTests: XCTestCase {
 			expectation.fulfill()
 		}
 
+		let waiter = XCTWaiter()
 		waiter.wait(for: [expectation], timeout: 3)
 
 		XCTAssertFalse(waiter.fulfilledExpectations.isEmpty)
@@ -65,7 +64,6 @@ class NewsParserTests: XCTestCase {
 
 		let sut = NewsParser(data: data)
 		let expectation = XCTestExpectation()
-		let waiter = XCTWaiter()
 
 		sut.fetchNews { result in
 			do {
@@ -89,7 +87,9 @@ class NewsParserTests: XCTestCase {
 			expectation.fulfill()
 		}
 
+		let waiter = XCTWaiter()
 		waiter.wait(for: [expectation], timeout: 3)
+
 		XCTAssertFalse(waiter.fulfilledExpectations.isEmpty)
 	}
 }

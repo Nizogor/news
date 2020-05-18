@@ -27,6 +27,7 @@
 		020BEA462472FC9B00173AE5 /* TabBarDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA452472FC9B00173AE5 /* TabBarDependencyContainer.swift */; };
 		020BEA4A247304ED00173AE5 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA49247304ED00173AE5 /* SettingsService.swift */; };
 		020BEA4C247304F800173AE5 /* SettingsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA4B247304F800173AE5 /* SettingsServiceProtocol.swift */; };
+		020BEA4F247313B400173AE5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA4E247313B400173AE5 /* News.swift */; };
 		020BEA6424732A7F00173AE5 /* SettingsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
@@ -126,6 +127,7 @@
 		020BEA452472FC9B00173AE5 /* TabBarDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDependencyContainer.swift; sourceTree = "<group>"; };
 		020BEA49247304ED00173AE5 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		020BEA4B247304F800173AE5 /* SettingsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceProtocol.swift; sourceTree = "<group>"; };
+		020BEA4E247313B400173AE5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceTests.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				020BEA322471E58100173AE5 /* Builder */,
 				020BEA342471E58100173AE5 /* Interactor */,
 				020BEA382471E58100173AE5 /* Router */,
+				020BEA4D2473139D00173AE5 /* Entity */,
 			);
 			path = NewsList;
 			sourceTree = "<group>";
@@ -317,6 +320,14 @@
 				020BEA49247304ED00173AE5 /* SettingsService.swift */,
 			);
 			path = SettingsService;
+			sourceTree = "<group>";
+		};
+		020BEA4D2473139D00173AE5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA4E247313B400173AE5 /* News.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		020BEA60247325E000173AE5 /* SettingsServiceTests */ = {
@@ -851,6 +862,7 @@
 				02AA764C246F37C600A06904 /* DependencyContainer.swift in Sources */,
 				02AA76AA2470386400A06904 /* TabBarInteractor.swift in Sources */,
 				020BEA3F2471E58100173AE5 /* NewsListBuilder.swift in Sources */,
+				020BEA4F247313B400173AE5 /* News.swift in Sources */,
 				02AA76A62470386400A06904 /* TabBarViewController.swift in Sources */,
 				02AA76A52470386400A06904 /* TabBarPresenterDelegate.swift in Sources */,
 				020BEA442471E58100173AE5 /* NewsListRouter.swift in Sources */,

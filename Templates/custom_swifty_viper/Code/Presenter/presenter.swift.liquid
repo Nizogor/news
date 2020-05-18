@@ -12,6 +12,8 @@ class {{ module_info.name }}Presenter {
     
     weak var delegate: {{ module_info.name }}PresenterDelegate?
 
+    // MARK: - Private Properties
+
     private let interactor: {{ module_info.name }}InteractorProtocol
     private let router: {{ module_info.name }}RouterProtocol
 

@@ -6,11 +6,14 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
-import Foundation
-
 class DependencyContainer {
 
 	func makeTabBarBuilder() -> TabBarBuilder {
-		return TabBarBuilder()
+		let dependencyContainer = makeTabBarDependencyContainer()
+		return TabBarBuilder(dependencyContainer: dependencyContainer)
+	}
+
+	func makeTabBarDependencyContainer() -> TabBarDependencyContainer {
+		return TabBarDependencyContainer()
 	}
 }

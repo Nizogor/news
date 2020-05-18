@@ -31,13 +31,18 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		setup()
+		setupView()
+		setupTabBar()
     }
 
 	// MARK: - Private Methods
 
-	private func setup() {
+	private func setupView() {
 		view.backgroundColor = .white
+	}
+
+	private func setupTabBar() {
+		tabBar.tintColor = .black
 	}
 }
 

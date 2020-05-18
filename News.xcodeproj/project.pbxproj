@@ -27,6 +27,7 @@
 		020BEA462472FC9B00173AE5 /* TabBarDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA452472FC9B00173AE5 /* TabBarDependencyContainer.swift */; };
 		020BEA4A247304ED00173AE5 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA49247304ED00173AE5 /* SettingsService.swift */; };
 		020BEA4C247304F800173AE5 /* SettingsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA4B247304F800173AE5 /* SettingsServiceProtocol.swift */; };
+		020BEA6424732A7F00173AE5 /* SettingsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -125,6 +126,7 @@
 		020BEA452472FC9B00173AE5 /* TabBarDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDependencyContainer.swift; sourceTree = "<group>"; };
 		020BEA49247304ED00173AE5 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		020BEA4B247304F800173AE5 /* SettingsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceProtocol.swift; sourceTree = "<group>"; };
+		020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceTests.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -317,6 +319,14 @@
 			path = SettingsService;
 			sourceTree = "<group>";
 		};
+		020BEA60247325E000173AE5 /* SettingsServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */,
+			);
+			path = SettingsServiceTests;
+			sourceTree = "<group>";
+		};
 		0280FC1D246F3067007973D9 = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +402,7 @@
 				020BE9DD247070D900173AE5 /* NetworkServiceTests */,
 				020BE9DE247070E800173AE5 /* NewsParserTests */,
 				020BE9EF24709B8000173AE5 /* SaveServiceTests */,
+				020BEA60247325E000173AE5 /* SettingsServiceTests */,
 				02AA7663246FD9BC00A06904 /* Info.plist */,
 			);
 			path = NewsKitTests;
@@ -879,6 +890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				020BE9F4247139C000173AE5 /* MockDependencyContainer.swift in Sources */,
+				020BEA6424732A7F00173AE5 /* SettingsServiceTests.swift in Sources */,
 				020BE9F124709B9E00173AE5 /* SaveServiceTests.swift in Sources */,
 				020BE9E02470711000173AE5 /* NetworkServiceTests.swift in Sources */,
 				02AA768424700C4800A06904 /* NewsParserTests.swift in Sources */,

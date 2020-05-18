@@ -7,7 +7,7 @@
 //
 
 private class SettingsServiceDelegateWrapper {
-	weak var delegate: SettingsServiceDelegate?
+	weak var delegate: SettingsProviderDelegate?
 }
 
 public class SettingsService {
@@ -34,33 +34,33 @@ public class SettingsService {
 extension SettingsService: SettingsServiceProtocol {
 
 	public var updatePeriod: TimeInterval {
+		get {
+			userDefaults.value(forKey: updatePeriodUserDefaultsKey) as? TimeInterval ?? defaultUpdatePeriod
+		}
 		set {
 			userDefaults.set(newValue, forKey: updatePeriodUserDefaultsKey)
 			delegateWrappers.forEach { $0.delegate?.settingsService(self, didChangeUpdatePeriod: newValue) }
 		}
-		get {
-			userDefaults.value(forKey: updatePeriodUserDefaultsKey) as? TimeInterval ?? defaultUpdatePeriod
-		}
 	}
 
 	public var shouldShowSource: Bool {
+		get {
+			userDefaults.value(forKey: shouldShowSourceUserDefaultsKey) as? Bool ?? shouldShowSourceByDefault
+		}
 		set {
 			userDefaults.set(newValue, forKey: shouldShowSourceUserDefaultsKey)
 			delegateWrappers.forEach { $0.delegate?.settingsService(self, didChangeShowingSourcePolicy: newValue) }
 		}
-		get {
-			userDefaults.value(forKey: shouldShowSourceUserDefaultsKey) as? Bool ?? shouldShowSourceByDefault
-		}
 	}
 
-	public func addDelegate(_ delegate: SettingsServiceDelegate) {
+	public func addDelegate(_ delegate: SettingsProviderDelegate) {
 		let wrapper = SettingsServiceDelegateWrapper()
 		wrapper.delegate = delegate
 
 		delegateWrappers.append(wrapper)
 	}
 
-	public func removeDelegate(_ delegate: SettingsServiceDelegate) {
+	public func removeDelegate(_ delegate: SettingsProviderDelegate) {
 		delegateWrappers.removeAll { $0.delegate === delegate }
 	}
 }

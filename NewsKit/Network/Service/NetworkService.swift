@@ -13,8 +13,8 @@ public class NetworkService {
 }
 
 extension NetworkService: NetworkServiceProtocol {
-	public func downloadNews(urlString: String, completion: @escaping (Result<Data, Error>) -> ()) {
-		AF.request(urlString).responseData { response in
+	public func downloadResource(link: String, completion: @escaping (Result<Data, Error>) -> ()) {
+		AF.request(link).responseData { response in
 			do {
 				let data = try response.result.get()
 				completion(.success(data))

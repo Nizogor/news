@@ -16,7 +16,7 @@ class NetworkServiceTests: XCTestCase {
 	let waiter = XCTWaiter()
 
 	func test_downloadsData() {
-		sut.downloadNews(urlString: "https://www.gazeta.ru/export/rss/lenta.xml") { [weak self] result in
+		sut.downloadResource(link: "https://www.gazeta.ru/export/rss/lenta.xml") { [weak self] result in
 			switch result {
 			case .failure(let error):
 				XCTFail(error.localizedDescription)
@@ -33,7 +33,7 @@ class NetworkServiceTests: XCTestCase {
 	}
 
 	func test_fails_whenWrongURLStringPassed() {
-		sut.downloadNews(urlString: "wrong url") { [weak self] result in
+		sut.downloadResource(link: "wrong url") { [weak self] result in
 			switch result {
 			case .success:
 				XCTFail()

@@ -7,5 +7,5 @@
 //
 
 public protocol NetworkServiceProtocol: class {
-	func downloadNews(urlString: String, completion: @escaping (Result<Data, Error>) -> ())
+	func downloadResource(link: String, completion: @escaping (Result<Data, Error>) -> ())
 }

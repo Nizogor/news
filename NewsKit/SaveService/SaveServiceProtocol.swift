@@ -8,6 +8,7 @@
 
 public protocol SaveServiceDelegate: class {
 	func saveService(_ saveService: SaveServiceProtocol, didUpdateNews news: [NewsDTO])
+	func saveService(_ saveService: SaveServiceProtocol, didUpdateReadNewsLinks links: Set<String>)
 }
 
 public protocol SaveServiceProtocol: class {
@@ -15,6 +16,9 @@ public protocol SaveServiceProtocol: class {
 
 	func fetchNews(completion: @escaping (Result<[NewsDTO], Error>) -> ())
 	func saveNews(_ news: [NewsDTO], completion: @escaping (Result<Void, Error>) -> ())
+
+	func readNewsLinks() -> Set<String>
+	func saveReadNewsLink(_ link: String)
 }
 
 extension SaveServiceProtocol {

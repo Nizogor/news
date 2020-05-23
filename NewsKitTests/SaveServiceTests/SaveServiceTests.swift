@@ -12,7 +12,14 @@ import RealmSwift
 
 class SaveServiceTests: XCTestCase {
 
+	let mockLink = "https://link.com"
+	let suiteName = "SaveServiceTests"
+	var userDefaults: UserDefaults? {
+		return UserDefaults(suiteName: suiteName)
+	}
+
 	var onNewsUpdate: (([NewsDTO]) -> ())?
+	var onReadNewsLinksUpdate: ((Set<String>) -> ())?
 
     override func setUp() {
 		Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "SaveServiceTests"
@@ -25,6 +32,8 @@ class SaveServiceTests: XCTestCase {
 		} catch {
 			XCTFail(error.localizedDescription)
 		}
+
+		UserDefaults().removePersistentDomain(forName: suiteName)
     }
 
     override func tearDown() {
@@ -38,6 +47,7 @@ class SaveServiceTests: XCTestCase {
 		let saveWaiter = XCTWaiter()
 
 		sut.saveNews(newsToSave) { result in
+			XCTAssertEqual(Thread.current, Thread.main)
 			saveExpectation.fulfill()
 		}
 
@@ -46,6 +56,8 @@ class SaveServiceTests: XCTestCase {
 		let fetchExpectation = XCTestExpectation()
 
 		sut.fetchNews { result in
+			XCTAssertEqual(Thread.current, Thread.main)
+
 			switch result {
 			case .success(let fetchedNews):
 				XCTAssertEqual(newsToSave.count, fetchedNews.count)
@@ -63,13 +75,59 @@ class SaveServiceTests: XCTestCase {
 		XCTAssertFalse(fetchWaiter.fulfilledExpectations.isEmpty)
 	}
 
-	func test_notificatesDelegate() {
-		let sut = SaveService()
+	func test_savesReadNewsLink() {
+		guard let userDefaults = userDefaults else {
+			XCTFail()
+			return
+		}
+
+		let sut = SaveService(userDefaults: userDefaults)
+		sut.saveReadNewsLink(mockLink)
+
+		XCTAssert(sut.readNewsLinks().contains(mockLink))
+	}
+
+	func test_siftesReadNewsLinks() {
+		guard let userDefaults = userDefaults else {
+			XCTFail()
+			return
+		}
+
+		let sut = SaveService(userDefaults: userDefaults)
+		let link = mockLink
+		sut.saveReadNewsLink(link)
+
+		let news = randomNews(count: 2)
+
+		sut.saveNews(news) { result in
+			XCTAssertTrue(sut.readNewsLinks().isEmpty)
+		}
+	}
+
+	func test_notifiesDelegate() {
+		guard let userDefaults = userDefaults else {
+			XCTFail()
+			return
+		}
+
+		let sut = SaveService(userDefaults: userDefaults)
 		sut.delegate = self
+
+		let saveLinkNotificationExpectation = XCTestExpectation()
+
+		onReadNewsLinksUpdate = { _ in
+			saveLinkNotificationExpectation.fulfill()
+		}
+
+		sut.saveReadNewsLink(mockLink)
+
+		let saveLinkNotificationWaiter = XCTWaiter()
+		saveLinkNotificationWaiter.wait(for: [saveLinkNotificationExpectation], timeout: 3)
 
 		let subscribeNotificationExpectation = XCTestExpectation()
 
 		onNewsUpdate = { _ in
+			XCTAssertEqual(Thread.current, Thread.main)
 			subscribeNotificationExpectation.fulfill()
 		}
 
@@ -80,6 +138,7 @@ class SaveServiceTests: XCTestCase {
 		let saveNotificationExpectation = XCTestExpectation()
 
 		onNewsUpdate = { savedNews in
+			XCTAssertEqual(Thread.current, Thread.main)
 			XCTAssertEqual(newsToSave.count, savedNews.count)
 			saveNotificationExpectation.fulfill()
 		}
@@ -89,6 +148,7 @@ class SaveServiceTests: XCTestCase {
 		let saveNotificationWaiter = XCTWaiter()
 		saveNotificationWaiter.wait(for: [saveNotificationExpectation], timeout: 3)
 
+		XCTAssertFalse(saveLinkNotificationWaiter.fulfilledExpectations.isEmpty)
 		XCTAssertFalse(subscribeNotificationWaiter.fulfilledExpectations.isEmpty)
 		XCTAssertFalse(saveNotificationWaiter.fulfilledExpectations.isEmpty)
 	}
@@ -164,5 +224,9 @@ class SaveServiceTests: XCTestCase {
 extension SaveServiceTests: SaveServiceDelegate {
 	func saveService(_ saveService: SaveServiceProtocol, didUpdateNews news: [NewsDTO]) {
 		onNewsUpdate?(news)
+	}
+
+	func saveService(_ saveService: SaveServiceProtocol, didUpdateReadNewsLinks links: Set<String>) {
+		onReadNewsLinksUpdate?(links)
 	}
 }

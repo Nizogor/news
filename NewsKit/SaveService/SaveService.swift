@@ -22,9 +22,25 @@ public class SaveService {
 
 	private var notificationToken: NotificationToken?
 
+	private let userDefaults: UserDefaults
+	private let readNewsUserDefaultsKey = "readNewsKey"
+	private var readNewsLinksCache: [String] {
+		get {
+			UserDefaults.standard.value(forKey: readNewsUserDefaultsKey) as? [String] ?? []
+		}
+		set {
+			UserDefaults.standard.set(newValue, forKey: readNewsUserDefaultsKey)
+
+			let set = Set(newValue)
+			delegate?.saveService(self, didUpdateReadNewsLinks: set)
+		}
+	}
+
 	// MARK: - Construction
 
-	public init() {}
+	public init(userDefaults: UserDefaults = UserDefaults.standard) {
+		self.userDefaults = userDefaults
+	}
 
 	// MARK: - Private Methods
 
@@ -53,7 +69,7 @@ public class SaveService {
 	}
 
 	private func notifyDelegate(_ results: Results<NewsObject>) {
-		let news: Array<NewsDTO> = results.map { self.map($0) }
+		let news: Array<NewsDTO> = results.map { self.dtoFromObject($0) }
 
 		DispatchQueue.main.async { [weak self] in
 			if let self = self {
@@ -64,7 +80,7 @@ public class SaveService {
 
 	// MARK: - Mapping
 
-	private func map(_ object: NewsObject) -> NewsDTO {
+	private func dtoFromObject(_ object: NewsObject) -> NewsDTO {
 		return NewsDTO(source: object.source,
 					   link: object.link,
 					   date: object.date,
@@ -73,14 +89,14 @@ public class SaveService {
 					   description: object.shortDescription)
 	}
 
-	private func map(_ news: NewsDTO) -> NewsObject {
+	private func objectFromDTO(_ dto: NewsDTO) -> NewsObject {
 		let object = NewsObject()
-		object.source = news.source
-		object.link = news.link
-		object.date = news.date
-		object.title = news.title
-		object.imageLink = news.imageLink
-		object.shortDescription = news.description
+		object.source = dto.source
+		object.link = dto.link
+		object.date = dto.date
+		object.title = dto.title
+		object.imageLink = dto.imageLink
+		object.shortDescription = dto.description
 
 		return object
 	}
@@ -97,12 +113,14 @@ extension SaveService: SaveServiceProtocol {
 
 		autoreleasepool {
 			queue.async { [weak self] in
-				do {
-					guard let self = self else { return }
+				guard let self = self else { return }
 
-					let aRealm = try Realm()
-					let results = aRealm.objects(NewsObject.self)
-					let news: Array<NewsDTO> = results.map { self.map($0) }
+				do {
+					let realm = try Realm()
+					let results = realm.objects(NewsObject.self)
+					let news: [NewsDTO] = results.map {
+						self.dtoFromObject($0)
+					}
 
 					safeCompletion(.success(news))
 				} catch {
@@ -124,12 +142,26 @@ extension SaveService: SaveServiceProtocol {
 				do {
 					guard let self = self else { return }
 
-					let aRealm = try Realm()
-					let objects = news.map { self.map($0) }
+					let realm = try Realm()
 
-					try aRealm.write {
-						aRealm.deleteAll()
-						aRealm.add(objects)
+					let links = Set(news.map({ $0.link }))
+
+					let realmObjects = realm.objects(NewsObject.self)
+					let objectsToSave = news.map { self.objectFromDTO($0) }
+					let objectsToDelete = realmObjects.filter { !links.contains($0.link) }
+
+					try realm.write {
+						realm.add(objectsToSave, update: .modified)
+						realm.delete(objectsToDelete)
+					}
+
+					DispatchQueue.main.async {
+						let readLinks = self.readNewsLinks()
+						let intersection = readLinks.intersection(links)
+
+						if readLinks.count != intersection.count {
+							self.readNewsLinksCache = Array(intersection)
+						}
 					}
 
 					safeCompletion(.success(()))
@@ -138,5 +170,13 @@ extension SaveService: SaveServiceProtocol {
 				}
 			}
 		}
+	}
+
+	public func readNewsLinks() -> Set<String> {
+		return Set(readNewsLinksCache)
+	}
+
+	public func saveReadNewsLink(_ link: String) {
+		readNewsLinksCache.append(link)
 	}
 }

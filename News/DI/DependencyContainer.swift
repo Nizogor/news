@@ -9,11 +9,7 @@
 class DependencyContainer {
 
 	func makeTabBarBuilder() -> TabBarBuilder {
-		let dependencyContainer = makeTabBarDependencyContainer()
+		let dependencyContainer = TabBarDependencyContainer()
 		return TabBarBuilder(dependencyContainer: dependencyContainer)
-	}
-
-	func makeTabBarDependencyContainer() -> TabBarDependencyContainer {
-		return TabBarDependencyContainer()
 	}
 }

@@ -6,8 +6,14 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
+import NewsKit
+
 class TabBarDependencyContainer {
+
+	let settingsService: SettingsServiceProtocol = SettingsService()
+
 	func makeNewsListBuilder() -> NewsListBuilder {
-		return NewsListBuilder()
+		let dependencyContainer = NewsListDependencyContainer(tabBarDependencyContainer: self)
+		return NewsListBuilder(dependencyContainer: dependencyContainer)
 	}
 }

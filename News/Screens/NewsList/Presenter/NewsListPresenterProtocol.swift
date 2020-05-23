@@ -7,5 +7,8 @@
 //
 
 protocol NewsListPresenterProtocol {
+	var viewModelsCount: Int { get }
 
+	func viewModelAtIndex(_ index: Int) -> NewsViewModelProtocol
+	func selectViewAtIndex(_ index: Int)
 }

@@ -28,6 +28,11 @@
 		020BEA4A247304ED00173AE5 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA49247304ED00173AE5 /* SettingsService.swift */; };
 		020BEA4C247304F800173AE5 /* SettingsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA4B247304F800173AE5 /* SettingsServiceProtocol.swift */; };
 		020BEA4F247313B400173AE5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA4E247313B400173AE5 /* News.swift */; };
+		020BEA5124731B1600173AE5 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA5024731B1600173AE5 /* NewsViewModel.swift */; };
+		020BEA5324731E0300173AE5 /* NewsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA5224731E0300173AE5 /* NewsViewModelProtocol.swift */; };
+		020BEA5C2473240700173AE5 /* NewsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA5B2473240700173AE5 /* NewsViewModelFactory.swift */; };
+		020BEA5F2473241C00173AE5 /* NewsViewModelFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA5E2473241C00173AE5 /* NewsViewModelFactoryProtocol.swift */; };
+		020BEA622473263D00173AE5 /* NewsListDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA612473263D00173AE5 /* NewsListDependencyContainer.swift */; };
 		020BEA6424732A7F00173AE5 /* SettingsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
@@ -128,6 +133,11 @@
 		020BEA49247304ED00173AE5 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		020BEA4B247304F800173AE5 /* SettingsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceProtocol.swift; sourceTree = "<group>"; };
 		020BEA4E247313B400173AE5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		020BEA5024731B1600173AE5 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		020BEA5224731E0300173AE5 /* NewsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelProtocol.swift; sourceTree = "<group>"; };
+		020BEA5B2473240700173AE5 /* NewsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelFactory.swift; sourceTree = "<group>"; };
+		020BEA5E2473241C00173AE5 /* NewsViewModelFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModelFactoryProtocol.swift; sourceTree = "<group>"; };
+		020BEA612473263D00173AE5 /* NewsListDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListDependencyContainer.swift; sourceTree = "<group>"; };
 		020BEA6324732A7F00173AE5 /* SettingsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceTests.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +281,7 @@
 		020BEA2C2471E58100173AE5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				020BEA5A247323E300173AE5 /* ViewModel */,
 				020BEA2D2471E58100173AE5 /* NewsListPresenterDelegate.swift */,
 				020BEA2E2471E58100173AE5 /* NewsListPresenter.swift */,
 				020BEA2F2471E58100173AE5 /* NewsListPresenterProtocol.swift */,
@@ -328,6 +339,33 @@
 				020BEA4E247313B400173AE5 /* News.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		020BEA59247323C700173AE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA5D2473240D00173AE5 /* Factory */,
+				020BEA5224731E0300173AE5 /* NewsViewModelProtocol.swift */,
+				020BEA5024731B1600173AE5 /* NewsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		020BEA5A247323E300173AE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA59247323C700173AE5 /* ViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		020BEA5D2473240D00173AE5 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA5E2473241C00173AE5 /* NewsViewModelFactoryProtocol.swift */,
+				020BEA5B2473240700173AE5 /* NewsViewModelFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		020BEA60247325E000173AE5 /* SettingsServiceTests */ = {
@@ -389,6 +427,7 @@
 			children = (
 				02AA764B246F37C600A06904 /* DependencyContainer.swift */,
 				020BEA452472FC9B00173AE5 /* TabBarDependencyContainer.swift */,
+				020BEA612473263D00173AE5 /* NewsListDependencyContainer.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -850,12 +889,15 @@
 				020BEA3C2471E58100173AE5 /* NewsListPresenter.swift in Sources */,
 				02AA76A42470386400A06904 /* TabBarPresenter.swift in Sources */,
 				020BEA3B2471E58100173AE5 /* NewsListPresenterDelegate.swift in Sources */,
+				020BEA622473263D00173AE5 /* NewsListDependencyContainer.swift in Sources */,
 				020BEA412471E58100173AE5 /* NewsListInteractor.swift in Sources */,
+				020BEA5C2473240700173AE5 /* NewsViewModelFactory.swift in Sources */,
 				020BEA422471E58100173AE5 /* NewsListInteractorProtocol.swift in Sources */,
 				02AA76A92470386400A06904 /* TabBarInteractorDelegate.swift in Sources */,
 				02AA76A32470386400A06904 /* TabBarPresenterProtocol.swift in Sources */,
 				02AA76A82470386400A06904 /* TabBarInteractorProtocol.swift in Sources */,
 				020BEA402471E58100173AE5 /* NewsListInteractorDelegate.swift in Sources */,
+				020BEA5124731B1600173AE5 /* NewsViewModel.swift in Sources */,
 				0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */,
 				020BEA462472FC9B00173AE5 /* TabBarDependencyContainer.swift in Sources */,
 				02AA76AC2470386400A06904 /* TabBarRouter.swift in Sources */,
@@ -866,6 +908,8 @@
 				02AA76A62470386400A06904 /* TabBarViewController.swift in Sources */,
 				02AA76A52470386400A06904 /* TabBarPresenterDelegate.swift in Sources */,
 				020BEA442471E58100173AE5 /* NewsListRouter.swift in Sources */,
+				020BEA5F2473241C00173AE5 /* NewsViewModelFactoryProtocol.swift in Sources */,
+				020BEA5324731E0300173AE5 /* NewsViewModelProtocol.swift in Sources */,
 				02AA76A72470386400A06904 /* TabBarBuilder.swift in Sources */,
 				020BEA3E2471E58100173AE5 /* NewsListViewController.swift in Sources */,
 			);

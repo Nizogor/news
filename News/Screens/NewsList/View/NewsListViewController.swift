@@ -51,5 +51,7 @@ class NewsListViewController: UIViewController {
 // MARK: - NewsListPresenterDelegate
 
 extension NewsListViewController: NewsListPresenterDelegate {
-
+	func updateNewsList() {
+		
+	}
 }

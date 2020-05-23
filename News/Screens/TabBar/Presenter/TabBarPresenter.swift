@@ -12,6 +12,8 @@ class TabBarPresenter {
     
     weak var delegate: TabBarPresenterDelegate?
 
+	// MARK: - Private Properties
+
     private let interactor: TabBarInteractorProtocol
     private let router: TabBarRouterProtocol
 

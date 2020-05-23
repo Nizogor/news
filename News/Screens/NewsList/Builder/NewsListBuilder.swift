@@ -10,13 +10,27 @@ import UIKit
 
 class NewsListBuilder {
 
+	// MARK: - Private Properties
+
+	private let dependencyContainer: NewsListDependencyContainer
+
+	// MARK: - Construction
+
+	init(dependencyContainer: NewsListDependencyContainer) {
+		self.dependencyContainer = dependencyContainer
+	}
+
     // MARK: - Methods
     
     func buildModule() -> UIViewController {
-        let interactor = NewsListInteractor()
+		let interactor = NewsListInteractor(networkService: dependencyContainer.networkService,
+											saveService: dependencyContainer.saveService)
         let router = NewsListRouter()
 
-        let presenter = NewsListPresenter(interactor: interactor, router: router)
+		let presenter = NewsListPresenter(interactor: interactor,
+										  router: router,
+										  settingsProvider: dependencyContainer.tabBarDependencyContainer.settingsService,
+										  newsViewModelFactory: dependencyContainer.newsViewModelFactory)
         let viewController = NewsListViewController(presenter: presenter)
 
         interactor.delegate = presenter

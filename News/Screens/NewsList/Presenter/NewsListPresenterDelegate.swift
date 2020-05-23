@@ -7,5 +7,5 @@
 //
 
 protocol NewsListPresenterDelegate: class {
-
+	func updateNewsList()
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
+import NewsKit
+
 protocol NewsListInteractorProtocol {
 
 	var isLoading: Bool { get }

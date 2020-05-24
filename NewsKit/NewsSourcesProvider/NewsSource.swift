@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
-struct NewsSource {
-	let name: String
-	let link: String
+public struct NewsSource: Decodable {
+	public let name: String
+	public let link: String
 }

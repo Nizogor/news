@@ -1,0 +1,12 @@
+{
+	"items": [
+		{
+			"name": "Lenta.ru",
+			"link": "https://lenta.ru/rss"
+		},
+		{
+			"name": "Газета.ru",
+			"link": "https://www.gazeta.ru/export/rss/lenta.xml"
+		}
+	]
+}

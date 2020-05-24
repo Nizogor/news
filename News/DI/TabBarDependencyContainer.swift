@@ -11,6 +11,7 @@ import NewsKit
 class TabBarDependencyContainer {
 
 	let settingsService: SettingsServiceProtocol = SettingsService()
+	let newsSourcesProvider: NewsSourcesProviderProtocol = NewsSourcesProvider()
 
 	func makeNewsListBuilder() -> NewsListBuilder {
 		let dependencyContainer = NewsListDependencyContainer(tabBarDependencyContainer: self)

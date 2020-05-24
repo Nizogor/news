@@ -23,6 +23,7 @@ public class SettingsService {
 
 	private let updatePeriodUserDefaultsKey = "updatePeriodKey"
 	private let shouldShowSourceUserDefaultsKey = "shouldShowSourceKey"
+	private let disabledNewsSourcesUserDefaultsKey = "disabledNewsSourcesKey"
 
 	// MARK: - Construction
 
@@ -50,6 +51,18 @@ extension SettingsService: SettingsServiceProtocol {
 		set {
 			userDefaults.set(newValue, forKey: shouldShowSourceUserDefaultsKey)
 			delegateWrappers.forEach { $0.delegate?.settingsService(self, didChangeShowingSourcePolicy: newValue) }
+		}
+	}
+
+	public var disabledNewsSources: Set<String> {
+		get {
+			let disabledSources = userDefaults.value(forKey: disabledNewsSourcesUserDefaultsKey) as? [String] ?? []
+			return Set(disabledSources)
+		}
+		set {
+			let array = Array(newValue)
+			userDefaults.set(array, forKey: disabledNewsSourcesUserDefaultsKey)
+			delegateWrappers.forEach { $0.delegate?.settingsService(self, didChangeDisabledNewsSources: newValue) }
 		}
 	}
 

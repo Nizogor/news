@@ -99,4 +99,9 @@ extension NewsListPresenter: SettingsProviderDelegate {
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeShowingSourcePolicy shouldShowSource: Bool) {
 		delegate?.updateNewsList()
 	}
+
+	func settingsService(_ settingsService: SettingsServiceProtocol,
+						 didChangeDisabledNewsSources newsSources: Set<String>) {
+
+	}
 }

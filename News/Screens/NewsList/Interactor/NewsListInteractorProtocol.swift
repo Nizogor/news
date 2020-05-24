@@ -8,8 +8,9 @@
 
 protocol NewsListInteractorProtocol {
 
+	var isLoading: Bool { get }
 	var readNewsLinks: Set<String> { get }
 
 	func addReadNewsLink(_ link: String)
-	func updateNews()
+	func updateNews(from newsSources: [NewsSource])
 }

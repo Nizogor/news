@@ -14,7 +14,7 @@ private enum ElementType: String {
 	case enclosure
 }
 
-class NewsParser: XMLParser {
+public class NewsParser: XMLParser {
 
 	// MARK: - Private Properties
 
@@ -30,7 +30,7 @@ class NewsParser: XMLParser {
 
 	// MARK: - Construction
 
-	override init(data: Data) {
+	public override init(data: Data) {
 		super.init(data: data)
 
 		delegate = self
@@ -45,7 +45,7 @@ class NewsParser: XMLParser {
 }
 
 extension NewsParser: NewsParserProtocol {
-	func fetchNews(completion: @escaping (Result<[NewsAPIModel], Error>) -> ()) {
+	public func fetchNews(completion: @escaping (Result<[NewsAPIModel], Error>) -> ()) {
 		completionHandler = completion
 
 		if !parse(), let error = parserError {
@@ -55,11 +55,11 @@ extension NewsParser: NewsParserProtocol {
 }
 
 extension NewsParser: XMLParserDelegate {
-	func parserDidStartDocument(_ parser: XMLParser) {
+	public func parserDidStartDocument(_ parser: XMLParser) {
 		items = []
 	}
 
-	func parserDidEndDocument(_ parser: XMLParser) {
+	public func parserDidEndDocument(_ parser: XMLParser) {
 		if let error = parser.parserError {
 			completionHandler?(.failure(error))
 		} else {
@@ -67,7 +67,7 @@ extension NewsParser: XMLParserDelegate {
 		}
 	}
 
-	func parser(_ parser: XMLParser,
+	public func parser(_ parser: XMLParser,
 				didStartElement elementName: String,
 				namespaceURI: String?, qualifiedName qName: String?,
 				attributes attributeDict: [String : String] = [:]) {
@@ -88,7 +88,7 @@ extension NewsParser: XMLParserDelegate {
 		}
 	}
 
-	func parser(_ parser: XMLParser, foundCharacters string: String) {
+	public func parser(_ parser: XMLParser, foundCharacters string: String) {
 		guard let element = currentElement else {
 			return
 		}
@@ -102,7 +102,7 @@ extension NewsParser: XMLParserDelegate {
 		}
 	}
 
-	func parser(_ parser: XMLParser,
+	public func parser(_ parser: XMLParser,
 				didEndElement elementName: String,
 				namespaceURI: String?,
 				qualifiedName qName: String?) {
@@ -120,11 +120,11 @@ extension NewsParser: XMLParserDelegate {
 		}
 	}
 
-	func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+	public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
 		completionHandler?(.failure(parseError))
 	}
 
-	func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
+	public func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
 		completionHandler?(.failure(validationError))
 	}
 }

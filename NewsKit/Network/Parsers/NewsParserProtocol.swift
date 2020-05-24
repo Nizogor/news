@@ -6,6 +6,6 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
-protocol NewsParserProtocol {
+public protocol NewsParserProtocol {
 	func fetchNews(completion: @escaping (Result<[NewsAPIModel], Error>) -> ())
 }

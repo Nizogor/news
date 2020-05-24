@@ -15,8 +15,10 @@ class NewsListDependencyContainer {
 	let tabBarDependencyContainer: TabBarDependencyContainer
 
 	let networkService: NetworkServiceProtocol = NetworkService()
+	let newsParserFactory: NewsParserFactoryProtocol = NewsParserFactory()
 	let saveService: SaveServiceProtocol = SaveService()
-
+	let newsSources = [NewsSource(name: "Lenta.ru", link: "https://lenta.ru/rss"),
+					   NewsSource(name: "Газета.ru", link: "https://www.gazeta.ru/export/rss/lenta.xml")]
 	let newsViewModelFactory: NewsViewModelFactoryProtocol
 
 	// MARK: - Construction

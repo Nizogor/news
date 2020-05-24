@@ -6,10 +6,10 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
-struct NewsAPIModel: Codable {
-	let link: String
-	let pubDate: String
-	let title: String
-	let enclosure: String?
-	let description: String
+public struct NewsAPIModel: Codable {
+	public let link: String
+	public let pubDate: String
+	public let title: String
+	public let enclosure: String?
+	public let description: String
 }

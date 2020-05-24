@@ -21,10 +21,8 @@ public protocol SaveServiceProtocol: class {
 	func saveReadNewsLink(_ link: String)
 }
 
-extension SaveServiceProtocol {
+public extension SaveServiceProtocol {
 	func saveNews(_ news: [NewsDTO]) {
-		saveNews(news, completion: { _ in
-
-		})
+		saveNews(news, completion: { _ in })
 	}
 }

@@ -24,6 +24,7 @@ class NewsListBuilder {
     
     func buildModule() -> UIViewController {
 		let interactor = NewsListInteractor(networkService: dependencyContainer.networkService,
+											newsParserFactory: dependencyContainer.newsParserFactory,
 											saveService: dependencyContainer.saveService)
         let router = NewsListRouter()
 

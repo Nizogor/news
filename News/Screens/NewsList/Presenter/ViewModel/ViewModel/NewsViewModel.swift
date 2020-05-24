@@ -41,6 +41,8 @@ class NewsViewModel {
 	private func downloadImage() {
 		guard imageData == nil && isLoading == false else { return }
 
+		isLoading = true
+
 		networkService.downloadResource(link: news.link) { [weak self] result in
 			self?.imageData = try? result.get()
 			self?.isLoading = false

@@ -56,6 +56,7 @@ class NewsListViewController: UIViewController {
 		tableView.separatorStyle = .none
 		tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.autoPinEdge(toSuperviewMargin: .top)
 		tableView.autoPinEdge(toSuperviewEdge: .leading)
 		tableView.autoPinEdge(toSuperviewEdge: .trailing)
@@ -96,5 +97,11 @@ extension NewsListViewController: UITableViewDataSource {
 		cell?.setup(viewModel: viewModel)
 
 		return cell ?? UITableViewCell()
+	}
+}
+
+extension NewsListViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		presenter.selectViewAtIndex(indexPath.row)
 	}
 }

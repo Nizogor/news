@@ -28,6 +28,7 @@ class NewsTableViewCell: UITableViewCell {
 	private let stackView = UIStackView()
 	private let pictureView = UIImageView()
 	private let dateLabel = UILabel()
+	private let readStatusLabelContainer = UIView()
 	private let activityIndicator = UIActivityIndicatorView(style: .large)
 	private let titleLabel = UILabel()
 	private let descriptionLabel = UILabel()
@@ -46,8 +47,9 @@ class NewsTableViewCell: UITableViewCell {
 
 		let bottomStackView = UIStackView(arrangedSubviews: [sourceLabel, detailsButton])
 
-		detailsButton.setContentHuggingPriority(.required, for: .horizontal)
 		detailsButton.addTarget(self, action: #selector(detailsButtonTouchUpInside(_:)), for: .touchUpInside)
+
+		sourceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
 		contentView.addSubview(stackView)
 		stackView.axis = .vertical
@@ -67,6 +69,7 @@ class NewsTableViewCell: UITableViewCell {
 		pictureView.autoSetDimension(.height, toSize: 200)
 		pictureView.addSubview(activityIndicator)
 		pictureView.addSubview(dateLabelContainer)
+		pictureView.addSubview(readStatusLabelContainer)
 
 		activityIndicator.color = .white
 		activityIndicator.autoCenterInSuperview()
@@ -79,6 +82,18 @@ class NewsTableViewCell: UITableViewCell {
 		dateLabelContainer.autoPinEdge(toSuperviewEdge: .leading, withInset: inset)
 
 		dateLabel.autoPinEdgesToSuperviewEdges(with: edgeInsets)
+
+		readStatusLabelContainer.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
+		readStatusLabelContainer.autoPinEdge(toSuperviewEdge: .bottom, withInset: inset)
+
+		let readStatusLabel = UILabel()
+		readStatusLabel.text = "Прочитано"
+
+		readStatusLabelContainer.backgroundColor = UIColor(white: 1, alpha: 0.8)
+		readStatusLabelContainer.layer.cornerRadius = 5
+		readStatusLabelContainer.addSubview(readStatusLabel)
+
+		readStatusLabel.autoPinEdgesToSuperviewEdges(with: edgeInsets)
 
 		titleLabel.font = .boldSystemFont(ofSize: 17)
 		titleLabel.numberOfLines = 0
@@ -104,6 +119,7 @@ class NewsTableViewCell: UITableViewCell {
 		updatePictureView()
 		update(isLoading: viewModel.isLoading)
 		update(isCollapsed: viewModel.isCollapsed)
+		update(isRead: viewModel.isRead)
 
 		dateLabel.text = viewModel.date
 		sourceLabel.text = viewModel.source
@@ -149,7 +165,7 @@ class NewsTableViewCell: UITableViewCell {
 	}
 
 	private func update(isRead: Bool) {
-
+		readStatusLabelContainer.isHidden = !isRead
 	}
 
 	// MARK: - Actions

@@ -134,8 +134,4 @@ extension NewsListInteractor: SaveServiceDelegate {
 
 		delegate?.newsListInteractor(self, didUpdateNews: models)
 	}
-
-	func saveService(_ saveService: SaveServiceProtocol, didUpdateReadNewsLinks links: Set<String>) {
-		delegate?.newsListInteractor(self, didUpdateReadNewsLinks: links)
-	}
 }

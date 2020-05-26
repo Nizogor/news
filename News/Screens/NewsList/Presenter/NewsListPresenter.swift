@@ -76,6 +76,7 @@ extension NewsListPresenter: NewsListPresenterProtocol {
 
 	func selectViewAtIndex(_ index: Int) {
 		let newsModel = news[index]
+		newsModel.isRead = true
 
 		if let url = URL(string: newsModel.link) {
 			let request = URLRequest(url: url)
@@ -97,17 +98,11 @@ extension NewsListPresenter: NewsListInteractorDelegate {
 
 		self.news = news.map {
 			let isRead = readNewsLinks.contains($0.link)
-			return self.newsViewModelFactory.makeNewsViewModel(news: $0, shouldShowSource: shouldShowSource, isRead: isRead)
+			return self.newsViewModelFactory.makeNewsViewModel(news: $0,
+															   shouldShowSource: shouldShowSource,
+															   isRead: isRead)
 		}
 		.sorted { $0.date > $1.date }
-
-		delegate?.updateNewsList()
-	}
-
-	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateReadNewsLinks links: Set<String>) {
-		news.forEach {
-			$0.isRead = links.contains($0.link)
-		}
 
 		delegate?.updateNewsList()
 	}

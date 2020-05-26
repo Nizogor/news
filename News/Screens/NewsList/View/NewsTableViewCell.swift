@@ -109,10 +109,6 @@ class NewsTableViewCell: UITableViewCell {
 	// MARK: - Methods
 
 	func setup(viewModel: NewsViewModelProtocol) {
-		guard viewModel !== self.viewModel else {
-			return
-		}
-
 		self.viewModel = viewModel
 		viewModel.delegate = self
 

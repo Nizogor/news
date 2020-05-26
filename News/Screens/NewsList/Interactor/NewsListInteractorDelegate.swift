@@ -8,5 +8,4 @@
 
 protocol NewsListInteractorDelegate: class {
 	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateNews news: [News])
-	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateReadNewsLinks links: Set<String>)
 }

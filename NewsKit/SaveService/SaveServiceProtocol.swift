@@ -8,7 +8,6 @@
 
 public protocol SaveServiceDelegate: class {
 	func saveService(_ saveService: SaveServiceProtocol, didUpdateNews news: [NewsDTO])
-	func saveService(_ saveService: SaveServiceProtocol, didUpdateReadNewsLinks links: Set<String>)
 }
 
 public protocol SaveServiceProtocol: class {

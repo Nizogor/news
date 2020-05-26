@@ -30,9 +30,6 @@ public class SaveService {
 		}
 		set {
 			UserDefaults.standard.set(newValue, forKey: readNewsUserDefaultsKey)
-
-			let set = Set(newValue)
-			delegate?.saveService(self, didUpdateReadNewsLinks: set)
 		}
 	}
 
@@ -177,6 +174,11 @@ extension SaveService: SaveServiceProtocol {
 	}
 
 	public func saveReadNewsLink(_ link: String) {
-		readNewsLinksCache.append(link)
+		var links = readNewsLinks()
+
+		if !links.contains(link) {
+			links.insert(link)
+			readNewsLinksCache = Array(links)
+		}
 	}
 }

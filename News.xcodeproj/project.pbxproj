@@ -43,6 +43,16 @@
 		020BEA78247ACEF600173AE5 /* NewsSources.json in Resources */ = {isa = PBXBuildFile; fileRef = 020BEA77247ACEF600173AE5 /* NewsSources.json */; };
 		020BEA7A247AD0F900173AE5 /* NewsSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA79247AD0F900173AE5 /* NewsSources.swift */; };
 		020BEA7D247AD1E900173AE5 /* NewsSourcesProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA7C247AD1E900173AE5 /* NewsSourcesProviderTests.swift */; };
+		020BEA94247D9E8C00173AE5 /* WebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA86247D9E8B00173AE5 /* WebPresenter.swift */; };
+		020BEA95247D9E8C00173AE5 /* WebPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA87247D9E8B00173AE5 /* WebPresenterProtocol.swift */; };
+		020BEA96247D9E8C00173AE5 /* WebPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA88247D9E8B00173AE5 /* WebPresenterDelegate.swift */; };
+		020BEA97247D9E8C00173AE5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA8A247D9E8B00173AE5 /* WebViewController.swift */; };
+		020BEA98247D9E8C00173AE5 /* WebBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA8C247D9E8B00173AE5 /* WebBuilder.swift */; };
+		020BEA99247D9E8C00173AE5 /* WebInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA8E247D9E8B00173AE5 /* WebInteractorProtocol.swift */; };
+		020BEA9A247D9E8C00173AE5 /* WebInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA8F247D9E8B00173AE5 /* WebInteractorDelegate.swift */; };
+		020BEA9B247D9E8C00173AE5 /* WebInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA90247D9E8B00173AE5 /* WebInteractor.swift */; };
+		020BEA9C247D9E8C00173AE5 /* WebRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA92247D9E8B00173AE5 /* WebRouterProtocol.swift */; };
+		020BEA9D247D9E8C00173AE5 /* WebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA93247D9E8B00173AE5 /* WebRouter.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -157,6 +167,16 @@
 		020BEA77247ACEF600173AE5 /* NewsSources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NewsSources.json; sourceTree = "<group>"; };
 		020BEA79247AD0F900173AE5 /* NewsSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSources.swift; sourceTree = "<group>"; };
 		020BEA7C247AD1E900173AE5 /* NewsSourcesProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSourcesProviderTests.swift; sourceTree = "<group>"; };
+		020BEA86247D9E8B00173AE5 /* WebPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPresenter.swift; sourceTree = "<group>"; };
+		020BEA87247D9E8B00173AE5 /* WebPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPresenterProtocol.swift; sourceTree = "<group>"; };
+		020BEA88247D9E8B00173AE5 /* WebPresenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPresenterDelegate.swift; sourceTree = "<group>"; };
+		020BEA8A247D9E8B00173AE5 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		020BEA8C247D9E8B00173AE5 /* WebBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBuilder.swift; sourceTree = "<group>"; };
+		020BEA8E247D9E8B00173AE5 /* WebInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebInteractorProtocol.swift; sourceTree = "<group>"; };
+		020BEA8F247D9E8B00173AE5 /* WebInteractorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebInteractorDelegate.swift; sourceTree = "<group>"; };
+		020BEA90247D9E8B00173AE5 /* WebInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebInteractor.swift; sourceTree = "<group>"; };
+		020BEA92247D9E8B00173AE5 /* WebRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRouterProtocol.swift; sourceTree = "<group>"; };
+		020BEA93247D9E8B00173AE5 /* WebRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRouter.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -432,6 +452,63 @@
 			path = NewsSourcesProviderTests;
 			sourceTree = "<group>";
 		};
+		020BEA84247D9E8B00173AE5 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA85247D9E8B00173AE5 /* Presenter */,
+				020BEA89247D9E8B00173AE5 /* View */,
+				020BEA8B247D9E8B00173AE5 /* Builder */,
+				020BEA8D247D9E8B00173AE5 /* Interactor */,
+				020BEA91247D9E8B00173AE5 /* Router */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		020BEA85247D9E8B00173AE5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA86247D9E8B00173AE5 /* WebPresenter.swift */,
+				020BEA87247D9E8B00173AE5 /* WebPresenterProtocol.swift */,
+				020BEA88247D9E8B00173AE5 /* WebPresenterDelegate.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		020BEA89247D9E8B00173AE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA8A247D9E8B00173AE5 /* WebViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		020BEA8B247D9E8B00173AE5 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA8C247D9E8B00173AE5 /* WebBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		020BEA8D247D9E8B00173AE5 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA8E247D9E8B00173AE5 /* WebInteractorProtocol.swift */,
+				020BEA8F247D9E8B00173AE5 /* WebInteractorDelegate.swift */,
+				020BEA90247D9E8B00173AE5 /* WebInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		020BEA91247D9E8B00173AE5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				020BEA92247D9E8B00173AE5 /* WebRouterProtocol.swift */,
+				020BEA93247D9E8B00173AE5 /* WebRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		0280FC1D246F3067007973D9 = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +635,7 @@
 			children = (
 				02AA76932470386400A06904 /* TabBar */,
 				020BEA2B2471E58100173AE5 /* NewsList */,
+				020BEA84247D9E8B00173AE5 /* Web */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -950,29 +1028,39 @@
 				02AA76A42470386400A06904 /* TabBarPresenter.swift in Sources */,
 				020BEA3B2471E58100173AE5 /* NewsListPresenterDelegate.swift in Sources */,
 				020BEA622473263D00173AE5 /* NewsListDependencyContainer.swift in Sources */,
+				020BEA9B247D9E8C00173AE5 /* WebInteractor.swift in Sources */,
 				020BEA412471E58100173AE5 /* NewsListInteractor.swift in Sources */,
 				020BEA6A24796B8500173AE5 /* NewsParserFactoryProtocol.swift in Sources */,
 				020BEA5C2473240700173AE5 /* NewsViewModelFactory.swift in Sources */,
 				020BEA422471E58100173AE5 /* NewsListInteractorProtocol.swift in Sources */,
+				020BEA95247D9E8C00173AE5 /* WebPresenterProtocol.swift in Sources */,
+				020BEA96247D9E8C00173AE5 /* WebPresenterDelegate.swift in Sources */,
 				02AA76A92470386400A06904 /* TabBarInteractorDelegate.swift in Sources */,
 				02AA76A32470386400A06904 /* TabBarPresenterProtocol.swift in Sources */,
 				02AA76A82470386400A06904 /* TabBarInteractorProtocol.swift in Sources */,
 				020BEA402471E58100173AE5 /* NewsListInteractorDelegate.swift in Sources */,
 				020BEA5124731B1600173AE5 /* NewsViewModel.swift in Sources */,
 				020BEA6C24796B8E00173AE5 /* NewsParserFactory.swift in Sources */,
+				020BEA97247D9E8C00173AE5 /* WebViewController.swift in Sources */,
 				0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */,
 				020BEA462472FC9B00173AE5 /* TabBarDependencyContainer.swift in Sources */,
 				02AA76AC2470386400A06904 /* TabBarRouter.swift in Sources */,
 				02AA764C246F37C600A06904 /* DependencyContainer.swift in Sources */,
+				020BEA9A247D9E8C00173AE5 /* WebInteractorDelegate.swift in Sources */,
+				020BEA94247D9E8C00173AE5 /* WebPresenter.swift in Sources */,
 				02AA76AA2470386400A06904 /* TabBarInteractor.swift in Sources */,
+				020BEA98247D9E8C00173AE5 /* WebBuilder.swift in Sources */,
 				020BEA3F2471E58100173AE5 /* NewsListBuilder.swift in Sources */,
 				020BEA70247AC5F100173AE5 /* NewsTableViewCell.swift in Sources */,
+				020BEA9D247D9E8C00173AE5 /* WebRouter.swift in Sources */,
 				020BEA4F247313B400173AE5 /* News.swift in Sources */,
 				02AA76A62470386400A06904 /* TabBarViewController.swift in Sources */,
+				020BEA9C247D9E8C00173AE5 /* WebRouterProtocol.swift in Sources */,
 				02AA76A52470386400A06904 /* TabBarPresenterDelegate.swift in Sources */,
 				020BEA442471E58100173AE5 /* NewsListRouter.swift in Sources */,
 				020BEA5F2473241C00173AE5 /* NewsViewModelFactoryProtocol.swift in Sources */,
 				020BEA5324731E0300173AE5 /* NewsPresenterViewModelProtocol.swift in Sources */,
+				020BEA99247D9E8C00173AE5 /* WebInteractorProtocol.swift in Sources */,
 				02AA76A72470386400A06904 /* TabBarBuilder.swift in Sources */,
 				020BEA3E2471E58100173AE5 /* NewsListViewController.swift in Sources */,
 			);

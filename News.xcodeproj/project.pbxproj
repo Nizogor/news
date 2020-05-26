@@ -380,19 +380,11 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		020BEA59247323C700173AE5 /* ViewModel */ = {
+		020BEA5A247323E300173AE5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				020BEA5224731E0300173AE5 /* NewsPresenterViewModelProtocol.swift */,
 				020BEA5024731B1600173AE5 /* NewsViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		020BEA5A247323E300173AE5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				020BEA59247323C700173AE5 /* ViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

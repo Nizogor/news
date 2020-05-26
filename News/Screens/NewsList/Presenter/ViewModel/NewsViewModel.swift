@@ -24,8 +24,8 @@ class NewsViewModel {
 		didSet { delegate?.viewModelDidUpdate(isRead: isRead) }
 	}
 
-	var isCollapsed = true {
-		didSet { delegate?.viewModelDidUpdate(isCollapsed: isCollapsed) }
+	var isOpen: Bool {
+		didSet { delegate?.viewModelDidUpdate(isOpen: isOpen) }
 	}
 
 	let source: String
@@ -54,10 +54,12 @@ class NewsViewModel {
 		 dateFormatter: DateFormatter,
 		 news: News,
 		 shouldShowSource: Bool,
-		 isRead: Bool) {
+		 isRead: Bool,
+		 isOpen: Bool) {
 		self.networkService = networkService
 		self.shouldShowSource = shouldShowSource
 		self.isRead = isRead
+		self.isOpen = isOpen
 
 		if let aDate = rssDateFormatter.date(from: news.date) {
 			date = dateFormatter.string(from: aDate)
@@ -100,6 +102,6 @@ extension NewsViewModel: NewsPresenterViewModelProtocol {
 
 extension NewsViewModel: NewsViewModelProtocol {
 	func detailsButtonTap() {
-		isCollapsed.toggle()
+		isOpen.toggle()
 	}
 }

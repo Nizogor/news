@@ -27,12 +27,16 @@ class NewsViewModelFactory {
 }
 
 extension NewsViewModelFactory: NewsViewModelFactoryProtocol {
-	func makeNewsViewModel(news: News, shouldShowSource: Bool, isRead: Bool) -> NewsPresenterViewModelProtocol {
+	func makeNewsViewModel(news: News,
+						   shouldShowSource: Bool,
+						   isRead: Bool,
+						   isOpen: Bool) -> NewsPresenterViewModelProtocol {
 		return NewsViewModel(networkService: networkService,
 							 rssDateFormatter: rssDateFormatter,
 							 dateFormatter: dateFormatter,
 							 news: news,
 							 shouldShowSource: shouldShowSource,
-							 isRead: isRead)
+							 isRead: isRead,
+							 isOpen: isOpen)
 	}
 }

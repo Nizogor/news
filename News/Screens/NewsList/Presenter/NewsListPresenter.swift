@@ -24,6 +24,7 @@ class NewsListPresenter {
 	private let newsViewModelFactory: NewsViewModelFactoryProtocol
 
 	private var news = [NewsPresenterViewModelProtocol]()
+	private var openedNewsCells = Set<String>()
 
     // MARK: - Construction
 
@@ -95,12 +96,17 @@ extension NewsListPresenter: NewsListInteractorDelegate {
 	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateNews news: [News]) {
 		let readNewsLinks = interactor.readNewsLinks
 		let shouldShowSource = settingsProvider.shouldShowSource
+		let openedNews = self.news.reduce(into: Set<String>()) { (set, viewModel) in
+			set.insert(viewModel.link)
+		}
 
 		self.news = news.map {
 			let isRead = readNewsLinks.contains($0.link)
+			let isOpened = openedNews.contains($0.link)
 			return self.newsViewModelFactory.makeNewsViewModel(news: $0,
 															   shouldShowSource: shouldShowSource,
-															   isRead: isRead)
+															   isRead: isRead,
+															   isOpen: isOpened)
 		}
 		.sorted { $0.date > $1.date }
 

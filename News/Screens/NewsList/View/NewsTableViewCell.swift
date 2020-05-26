@@ -114,7 +114,7 @@ class NewsTableViewCell: UITableViewCell {
 
 		updatePictureView()
 		update(isLoading: viewModel.isLoading)
-		update(isCollapsed: viewModel.isCollapsed)
+		update(isOpen: viewModel.isOpen)
 		update(isRead: viewModel.isRead)
 
 		dateLabel.text = viewModel.date
@@ -141,14 +141,14 @@ class NewsTableViewCell: UITableViewCell {
 		}
 	}
 
-	private func update(isCollapsed: Bool) {
-		descriptionLabel.isHidden = isCollapsed
+	private func update(isOpen: Bool) {
+		descriptionLabel.isHidden = !isOpen
 
 		let normalAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.gray,
 															   .font: UIFont.systemFont(ofSize: 12)]
 		let selectedAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.lightGray,
 																 .font: UIFont.systemFont(ofSize: 12)]
-		let title = isCollapsed ? "Развернуть" : "Свернуть"
+		let title = isOpen ? "Свернуть" : "Развернуть"
 		let normalTitle = NSAttributedString(string: title, attributes: normalAttributes)
 		let selectedTitle = NSAttributedString(string: title, attributes: selectedAttributes)
 
@@ -182,8 +182,8 @@ extension NewsTableViewCell: NewsViewModelDelegate {
 		update(isRead: isRead)
 	}
 
-	func viewModelDidUpdate(isCollapsed: Bool) {
-		update(isCollapsed: isCollapsed)
+	func viewModelDidUpdate(isOpen: Bool) {
+		update(isOpen: isOpen)
 		delegate?.cellNeedsUpdateHeight(self)
 	}
 

@@ -10,6 +10,9 @@ target 'News' do
   # Layout
   pod 'PureLayout'
 
+  # UI
+  pod 'SwiftyMarkdown'
+
   target 'NewsTests' do
     inherit! :search_paths
     # Pods for testing

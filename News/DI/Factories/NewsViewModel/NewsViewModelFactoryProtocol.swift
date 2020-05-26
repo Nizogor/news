@@ -7,5 +7,5 @@
 //
 
 protocol NewsViewModelFactoryProtocol {
-	func makeNewsViewModel(news: News, shouldShowSource: Bool, isRead: Bool) -> NewsViewModelProtocol
+	func makeNewsViewModel(news: News, shouldShowSource: Bool, isRead: Bool) -> NewsPresenterViewModelProtocol
 }

@@ -6,11 +6,13 @@ PODS:
   - Realm/Headers (5.0.0)
   - RealmSwift (5.0.0):
     - Realm (= 5.0.0)
+  - SwiftyMarkdown (1.2.1)
 
 DEPENDENCIES:
   - Alamofire
   - PureLayout
   - RealmSwift
+  - SwiftyMarkdown
 
 SPEC REPOS:
   trunk:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - PureLayout
     - Realm
     - RealmSwift
+    - SwiftyMarkdown
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   Realm: 76066d333de26f97e9caedaa85ee3ff4a62ca265
   RealmSwift: c1bdff09b422569dc6881410d9ccf712bcdb79b0
+  SwiftyMarkdown: 2154183e70170f940fe43342f385c92d9cf0a76b
 
-PODFILE CHECKSUM: 1df5da10e6dc81a93ba5fb3b900578d489bd83cc
+PODFILE CHECKSUM: fb001b175fc07a9cd38881e4ecbc0ce6fcfe8367
 
 COCOAPODS: 1.9.1

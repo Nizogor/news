@@ -19,21 +19,23 @@ class NewsListPresenter {
     private let interactor: NewsListInteractorProtocol
     private let router: NewsListRouterProtocol
 
+	private let newsSourcesProvider: NewsSourcesProviderProtocol
 	private let settingsProvider: SettingsProviderProtocol
 	private let newsViewModelFactory: NewsViewModelFactoryProtocol
 
-	private var news = [News]()
-	private var readNewsLinks = Set<String>()
+	private var news = [NewsPresenterViewModelProtocol]()
 
     // MARK: - Construction
 
     init(interactor: NewsListInteractorProtocol,
 		 router: NewsListRouterProtocol,
+		 newsSourcesProvider: NewsSourcesProviderProtocol,
 		 settingsProvider: SettingsProviderProtocol,
 		 newsViewModelFactory: NewsViewModelFactoryProtocol) {
         self.interactor = interactor
         self.router = router
 
+		self.newsSourcesProvider = newsSourcesProvider
 		self.settingsProvider = settingsProvider
 		self.newsViewModelFactory = newsViewModelFactory
 
@@ -48,7 +50,15 @@ class NewsListPresenter {
 
 	private func setup() {
 		settingsProvider.addDelegate(self)
-		readNewsLinks = interactor.readNewsLinks
+
+		update()
+	}
+
+	private func update() {
+		let disabledSources = settingsProvider.disabledNewsSources
+		let sources = newsSourcesProvider.fetchNewsSources().filter { !disabledSources.contains($0.link) }
+
+		interactor.updateNews(from: sources)
 	}
 }
 
@@ -61,12 +71,7 @@ extension NewsListPresenter: NewsListPresenterProtocol {
 	}
 
 	func viewModelAtIndex(_ index: Int) -> NewsViewModelProtocol {
-		let newsModel = news[index]
-		let isRead = interactor.readNewsLinks.contains(newsModel.link)
-
-		return newsViewModelFactory.makeNewsViewModel(news: newsModel,
-													  shouldShowSource: settingsProvider.shouldShowSource,
-													  isRead: isRead)
+		return news[index]
 	}
 
 	func selectViewAtIndex(_ index: Int) {
@@ -79,12 +84,23 @@ extension NewsListPresenter: NewsListPresenterProtocol {
 
 extension NewsListPresenter: NewsListInteractorDelegate {
 	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateNews news: [News]) {
-		self.news = news
+		let readNewsLinks = interactor.readNewsLinks
+		let shouldShowSource = settingsProvider.shouldShowSource
+
+		self.news = news.map {
+			let isRead = readNewsLinks.contains($0.link)
+			return self.newsViewModelFactory.makeNewsViewModel(news: $0, shouldShowSource: shouldShowSource, isRead: isRead)
+		}
+		.sorted { $0.date > $1.date }
 
 		delegate?.updateNewsList()
 	}
 
 	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateReadNewsLinks links: Set<String>) {
+		news.forEach {
+			$0.isRead = links.contains($0.link)
+		}
+
 		delegate?.updateNewsList()
 	}
 }
@@ -102,6 +118,6 @@ extension NewsListPresenter: SettingsProviderDelegate {
 
 	func settingsService(_ settingsService: SettingsServiceProtocol,
 						 didChangeDisabledNewsSources newsSources: Set<String>) {
-
+		update()
 	}
 }

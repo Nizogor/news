@@ -21,7 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.rootViewController = dependencyContainer.makeTabBarBuilder().buildModule()
 		window?.makeKeyAndVisible()
 
+		setupHTTPCache()
+
 		return true
+	}
+
+	func setupHTTPCache() {
+		URLCache.shared = URLCache(memoryCapacity: 4 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, diskPath: nil)
 	}
 }
 

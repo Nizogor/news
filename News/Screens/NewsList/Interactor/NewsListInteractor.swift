@@ -14,12 +14,16 @@ class NewsListInteractor {
 
     weak var delegate: NewsListInteractorDelegate?
 
-	// MARK: - Private Properties
+	var isLoading: Bool {
+		return downloadCompletion != nil
+	}
 
-	private(set) var isLoading = false
+	// MARK: - Private Properties
 	private let networkService: NetworkServiceProtocol
 	private let newsParserFactory: NewsParserFactoryProtocol
 	private let saveService: SaveServiceProtocol
+
+	private var downloadCompletion: (([NewsDTO]) -> ())?
 
 	// MARK: - Construction
 
@@ -53,12 +57,13 @@ extension NewsListInteractor: NewsListInteractorProtocol {
 	}
 
 	func updateNews(from newsSources: [NewsSource]) {
-		guard !isLoading else { return }
-
-		isLoading = true
-
 		let group = DispatchGroup()
 		var results = [Result<[NewsDTO], Error>]()
+
+		downloadCompletion = { [weak self] news in
+			self?.downloadCompletion = nil
+			self?.saveService.saveNews(news)
+		}
 
 		newsSources.forEach { newsSource in
 			group.enter()
@@ -82,7 +87,7 @@ extension NewsListInteractor: NewsListInteractorProtocol {
 		group.notify(queue: DispatchQueue.main) { [weak self] in
 			do {
 				let news = try results.compactMap { try $0.get() }.flatMap { $0 }
-				self?.saveService.saveNews(news)
+				self?.downloadCompletion?(news)
 			} catch {
 				print(error.localizedDescription)
 			}

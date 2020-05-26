@@ -30,6 +30,7 @@ class NewsListBuilder {
 
 		let presenter = NewsListPresenter(interactor: interactor,
 										  router: router,
+										  newsSourcesProvider: dependencyContainer.tabBarDependencyContainer.newsSourcesProvider,
 										  settingsProvider: dependencyContainer.tabBarDependencyContainer.settingsService,
 										  newsViewModelFactory: dependencyContainer.newsViewModelFactory)
         let viewController = NewsListViewController(presenter: presenter)

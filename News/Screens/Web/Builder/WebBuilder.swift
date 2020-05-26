@@ -12,11 +12,11 @@ class WebBuilder {
 
     // MARK: - Methods
     
-    func buildModule() -> UIViewController {
+	func buildModule(title: String, urlRequest: URLRequest) -> UIViewController {
         let interactor = WebInteractor()
         let router = WebRouter()
 
-        let presenter = WebPresenter(interactor: interactor, router: router)
+		let presenter = WebPresenter(interactor: interactor, router: router, title: title, urlRequest: urlRequest)
         let viewController = WebViewController(presenter: presenter)
 
         interactor.delegate = presenter

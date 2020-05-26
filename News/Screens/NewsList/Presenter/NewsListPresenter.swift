@@ -76,7 +76,15 @@ extension NewsListPresenter: NewsListPresenterProtocol {
 
 	func selectViewAtIndex(_ index: Int) {
 		let newsModel = news[index]
-		interactor.addReadNewsLink(newsModel.link)
+
+		if let url = URL(string: newsModel.link) {
+			let request = URLRequest(url: url)
+
+			router.openNews(title: newsModel.title, urlRequest: request)
+			interactor.addReadNewsLink(newsModel.link)
+		} else {
+			router.showWrongUrlError()
+		}
 	}
 }
 

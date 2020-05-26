@@ -36,12 +36,17 @@ class NewsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		setupView()
 		setupNavigationItem()
 		setupTabBarItem()
 		setupTableView()
     }
 
 	// MARK: - Private Methods
+
+	private func setupView() {
+		view.backgroundColor = .white
+	}
 
 	private func setupNavigationItem() {
 		title = screenName

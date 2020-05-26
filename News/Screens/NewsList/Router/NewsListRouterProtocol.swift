@@ -6,6 +6,9 @@
 //  Copyright © 2020 Nikita Teplyakov. All rights reserved.
 //
 
-protocol NewsListRouterProtocol {
+import Foundation
 
+protocol NewsListRouterProtocol {
+	func openNews(title: String, urlRequest: URLRequest)
+	func showWrongUrlError()
 }

@@ -26,18 +26,20 @@ class NewsListBuilder {
 		let interactor = NewsListInteractor(networkService: dependencyContainer.networkService,
 											newsParserFactory: dependencyContainer.newsParserFactory,
 											saveService: dependencyContainer.saveService)
-        let router = NewsListRouter()
+
+		let webBuilder = dependencyContainer.makeWebBuilder()
+		let router = NewsListRouter(webBuilder: webBuilder)
 
 		let presenter = NewsListPresenter(interactor: interactor,
 										  router: router,
 										  newsSourcesProvider: dependencyContainer.tabBarDependencyContainer.newsSourcesProvider,
 										  settingsProvider: dependencyContainer.tabBarDependencyContainer.settingsService,
 										  newsViewModelFactory: dependencyContainer.newsViewModelFactory)
-        let viewController = NewsListViewController(presenter: presenter)
+		let viewController = NewsListViewController(presenter: presenter)
 
         interactor.delegate = presenter
         presenter.delegate = viewController
-        router.viewController = viewController
+		router.viewController = viewController
 
         return viewController
     }

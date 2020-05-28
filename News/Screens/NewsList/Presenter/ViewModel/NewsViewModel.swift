@@ -16,10 +16,6 @@ class NewsViewModel {
 		didSet { downloadImage() }
 	}
 
-	var shouldShowSource: Bool {
-		didSet { delegate?.viewModelDidUpdate(shouldShowSource: shouldShowSource) }
-	}
-
 	var isRead: Bool {
 		didSet { delegate?.viewModelDidUpdate(isRead: isRead) }
 	}
@@ -53,11 +49,9 @@ class NewsViewModel {
 		 rssDateFormatter: DateFormatter,
 		 dateFormatter: DateFormatter,
 		 news: News,
-		 shouldShowSource: Bool,
 		 isRead: Bool,
 		 isOpen: Bool) {
 		self.networkService = networkService
-		self.shouldShowSource = shouldShowSource
 		self.isRead = isRead
 		self.isOpen = isOpen
 

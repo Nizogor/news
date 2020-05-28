@@ -112,17 +112,7 @@ class SaveServiceTests: XCTestCase {
 
 		let sut = SaveService(userDefaults: userDefaults)
 		sut.delegate = self
-
-		let saveLinkNotificationExpectation = XCTestExpectation()
-
-		onReadNewsLinksUpdate = { _ in
-			saveLinkNotificationExpectation.fulfill()
-		}
-
 		sut.saveReadNewsLink(mockLink)
-
-		let saveLinkNotificationWaiter = XCTWaiter()
-		saveLinkNotificationWaiter.wait(for: [saveLinkNotificationExpectation], timeout: 3)
 
 		let subscribeNotificationExpectation = XCTestExpectation()
 
@@ -148,7 +138,6 @@ class SaveServiceTests: XCTestCase {
 		let saveNotificationWaiter = XCTWaiter()
 		saveNotificationWaiter.wait(for: [saveNotificationExpectation], timeout: 3)
 
-		XCTAssertFalse(saveLinkNotificationWaiter.fulfilledExpectations.isEmpty)
 		XCTAssertFalse(subscribeNotificationWaiter.fulfilledExpectations.isEmpty)
 		XCTAssertFalse(saveNotificationWaiter.fulfilledExpectations.isEmpty)
 	}

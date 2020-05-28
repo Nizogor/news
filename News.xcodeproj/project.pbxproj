@@ -70,6 +70,8 @@
 		020BEAC4247F957500173AE5 /* UpdateTimeSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC3247F957500173AE5 /* UpdateTimeSettingsViewModel.swift */; };
 		020BEAC6247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC5247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift */; };
 		020BEAC8247F9AC000173AE5 /* UpdateTimeSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC7247F9AC000173AE5 /* UpdateTimeSettingsCell.swift */; };
+		020BEAD0247FA7CC00173AE5 /* SourcesListSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEACF247FA7CC00173AE5 /* SourcesListSettingsModel.swift */; };
+		020BEAD7247FB2A900173AE5 /* SourcesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAD6247FB2A900173AE5 /* SourcesListCell.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -211,6 +213,8 @@
 		020BEAC3247F957500173AE5 /* UpdateTimeSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTimeSettingsViewModel.swift; sourceTree = "<group>"; };
 		020BEAC5247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTimeSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
 		020BEAC7247F9AC000173AE5 /* UpdateTimeSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTimeSettingsCell.swift; sourceTree = "<group>"; };
+		020BEACF247FA7CC00173AE5 /* SourcesListSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesListSettingsModel.swift; sourceTree = "<group>"; };
+		020BEAD6247FB2A900173AE5 /* SourcesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesListCell.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -572,6 +576,7 @@
 			children = (
 				020BEAA9247F8DB600173AE5 /* SettingsViewController.swift */,
 				020BEAC7247F9AC000173AE5 /* UpdateTimeSettingsCell.swift */,
+				020BEAD6247FB2A900173AE5 /* SourcesListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				020BEAC0247F940300173AE5 /* SettingsSection.swift */,
 				020BEAC5247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift */,
 				020BEAC3247F957500173AE5 /* UpdateTimeSettingsViewModel.swift */,
+				020BEACF247FA7CC00173AE5 /* SourcesListSettingsModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1159,8 +1165,10 @@
 				020BEA5124731B1600173AE5 /* NewsViewModel.swift in Sources */,
 				020BEAC4247F957500173AE5 /* UpdateTimeSettingsViewModel.swift in Sources */,
 				020BEA6C24796B8E00173AE5 /* NewsParserFactory.swift in Sources */,
+				020BEAD0247FA7CC00173AE5 /* SourcesListSettingsModel.swift in Sources */,
 				020BEA97247D9E8C00173AE5 /* WebViewController.swift in Sources */,
 				0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */,
+				020BEAD7247FB2A900173AE5 /* SourcesListCell.swift in Sources */,
 				020BEA462472FC9B00173AE5 /* TabBarDependencyContainer.swift in Sources */,
 				02AA76AC2470386400A06904 /* TabBarRouter.swift in Sources */,
 				02AA764C246F37C600A06904 /* DependencyContainer.swift in Sources */,

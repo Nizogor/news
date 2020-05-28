@@ -13,7 +13,6 @@ class SettingsServiceTests: XCTestCase {
 
 	let suiteName = "SettingsServiceTests"
 	let mockUpdatePeriod = TimeInterval(100)
-	let mockShouldShowSource = false
 	let mockDisabledNewsSources = Set(arrayLiteral: "source1", "source2")
 
 	var onUpdatePeriodChanged: ((TimeInterval) -> ())?
@@ -39,25 +38,18 @@ class SettingsServiceTests: XCTestCase {
 
 	func test_savesSettings() {
 		sut?.updatePeriod = mockUpdatePeriod
-		sut?.shouldShowSource = mockShouldShowSource
 		sut?.disabledNewsSources = mockDisabledNewsSources
 		
 		XCTAssertEqual(sut?.updatePeriod, mockUpdatePeriod)
-		XCTAssertEqual(sut?.shouldShowSource, mockShouldShowSource)
 		XCTAssertEqual(sut?.disabledNewsSources, mockDisabledNewsSources)
 	}
 
 	func test_notificatesDelegate() {
 		let extpectation = XCTestExpectation()
-		extpectation.expectedFulfillmentCount = 3
+		extpectation.expectedFulfillmentCount = 2
 
 		onUpdatePeriodChanged = { [weak self] value in
 			XCTAssertEqual(self?.mockUpdatePeriod, value)
-			extpectation.fulfill()
-		}
-
-		onShowingSourcePolicyChanged = { [weak self] value in
-			XCTAssertEqual(self?.mockShouldShowSource, value)
 			extpectation.fulfill()
 		}
 
@@ -68,7 +60,6 @@ class SettingsServiceTests: XCTestCase {
 
 		sut?.addDelegate(self)
 		sut?.updatePeriod = mockUpdatePeriod
-		sut?.shouldShowSource = mockShouldShowSource
 		sut?.disabledNewsSources = mockDisabledNewsSources
 
 		let waiter = XCTWaiter()
@@ -90,10 +81,6 @@ class SettingsServiceTests: XCTestCase {
 extension SettingsServiceTests: SettingsProviderDelegate {
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeUpdatePeriod updatePeriod: TimeInterval) {
 		onUpdatePeriodChanged?(updatePeriod)
-	}
-
-	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeShowingSourcePolicy shouldShowSource: Bool) {
-		onShowingSourcePolicyChanged?(shouldShowSource)
 	}
 
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeDisabledNewsSources newsSources: Set<String>) {

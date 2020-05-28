@@ -18,7 +18,6 @@ protocol NewsViewModelDelegate: class {
 
 protocol NewsPresenterViewModelProtocol: NewsViewModelProtocol {
 	var isRead: Bool { get set }
-	var shouldShowSource: Bool { get set }
 	var isOpen: Bool { get set }
 	var link: String { get }
 }
@@ -29,7 +28,6 @@ protocol NewsViewModelProtocol: class {
 
 	var isLoading: Bool { get }
 	var isRead: Bool { get }
-	var shouldShowSource: Bool { get }
 	var isOpen: Bool { get }
 	var source: String { get }
 	var date: String { get }

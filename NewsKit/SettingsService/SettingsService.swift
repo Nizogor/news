@@ -19,10 +19,8 @@ public class SettingsService {
 	private let userDefaults: UserDefaults
 
 	private let defaultUpdatePeriod = TimeInterval(30)
-	private let shouldShowSourceByDefault = true
 
 	private let updatePeriodUserDefaultsKey = "updatePeriodKey"
-	private let shouldShowSourceUserDefaultsKey = "shouldShowSourceKey"
 	private let disabledNewsSourcesUserDefaultsKey = "disabledNewsSourcesKey"
 
 	// MARK: - Construction
@@ -41,16 +39,6 @@ extension SettingsService: SettingsServiceProtocol {
 		set {
 			userDefaults.set(newValue, forKey: updatePeriodUserDefaultsKey)
 			delegateWrappers.forEach { $0.delegate?.settingsService(self, didChangeUpdatePeriod: newValue) }
-		}
-	}
-
-	public var shouldShowSource: Bool {
-		get {
-			userDefaults.value(forKey: shouldShowSourceUserDefaultsKey) as? Bool ?? shouldShowSourceByDefault
-		}
-		set {
-			userDefaults.set(newValue, forKey: shouldShowSourceUserDefaultsKey)
-			delegateWrappers.forEach { $0.delegate?.settingsService(self, didChangeShowingSourcePolicy: newValue) }
 		}
 	}
 

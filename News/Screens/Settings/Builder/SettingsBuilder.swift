@@ -29,6 +29,8 @@ class SettingsBuilder {
 		let updateTimeViewModel = dependencyContainer.makeUpdateTimeSettingsViewModel()
 		let presenter = SettingsPresenter(interactor: interactor,
 										  router: router,
+										  sourcesProvider: dependencyContainer.tabBarDependencyContainer.newsSourcesProvider,
+										  settingsService: dependencyContainer.tabBarDependencyContainer.settingsService,
 										  updateTimeViewModel: updateTimeViewModel)
         let viewController = SettingsViewController(presenter: presenter)
 

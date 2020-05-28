@@ -8,4 +8,5 @@
 
 enum SettingsSection {
 	case updateTime(title: String, viewModel: UpdateTimeSettingsViewModelProtocol)
+	case newsSources(title: String, sources: [SourcesListSettingsModel])
 }

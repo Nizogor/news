@@ -7,5 +7,8 @@
 //
 
 protocol SettingsPresenterProtocol {
+
 	var sections: [SettingsSection] { get }
+
+	func selectSourceAtIndex(_ index: Int)
 }

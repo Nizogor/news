@@ -7,5 +7,5 @@
 //
 
 protocol SettingsPresenterDelegate: class {
-
+	func reloadSettingsList()
 }

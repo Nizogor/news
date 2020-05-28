@@ -8,13 +8,11 @@
 
 public protocol SettingsProviderDelegate: class {
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeUpdatePeriod updatePeriod: TimeInterval)
-	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeShowingSourcePolicy shouldShowSource: Bool)
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeDisabledNewsSources newsSources: Set<String>)
 }
 
 public protocol SettingsProviderProtocol: class {
 	var updatePeriod: TimeInterval { get }
-	var shouldShowSource: Bool { get }
 	var disabledNewsSources: Set<String> { get }
 
 	func addDelegate(_ delegate: SettingsProviderDelegate)
@@ -23,5 +21,5 @@ public protocol SettingsProviderProtocol: class {
 
 public protocol SettingsServiceProtocol: SettingsProviderProtocol {
 	var updatePeriod: TimeInterval { get set }
-	var shouldShowSource: Bool { get set }
+	var disabledNewsSources: Set<String> { get set }
 }

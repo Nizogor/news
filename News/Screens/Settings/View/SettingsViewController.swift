@@ -54,7 +54,9 @@ class SettingsViewController: UIViewController {
 		tableView.autoPinEdge(toSuperviewEdge: .trailing)
 		tableView.autoPinEdge(toSuperviewMargin: .bottom)
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.register(UpdateTimeSettingsCell.self, forCellReuseIdentifier: UpdateTimeSettingsCell.identifier)
+		tableView.register(SourcesListCell.self, forCellReuseIdentifier: SourcesListCell.identifier)
 	}
 
 	private func cellForUpdateTimeSection(indexPath: IndexPath, viewModel: UpdateTimeSettingsViewModelProtocol) -> UITableViewCell? {
@@ -64,12 +66,23 @@ class SettingsViewController: UIViewController {
 
 		return cell
 	}
+
+	private func cellForSourcesListSection(indexPath: IndexPath, sources: [SourcesListSettingsModel]) -> UITableViewCell? {
+		let identifier = SourcesListCell.identifier
+		let model = sources[indexPath.row]
+		let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? SourcesListCell
+		cell?.setup(model: model)
+
+		return cell
+	}
 }
 
 // MARK: - SettingsPresenterDelegate
 
 extension SettingsViewController: SettingsPresenterDelegate {
-
+	func reloadSettingsList() {
+		tableView.reloadData()
+	}
 }
 
 // MARK: - UITableViewDataSource
@@ -83,12 +96,15 @@ extension SettingsViewController: UITableViewDataSource {
 		switch presenter.sections[section] {
 		case .updateTime:
 			return 1
+		case .newsSources(_, let sources):
+			return sources.count
 		}
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		switch presenter.sections[section] {
-		case .updateTime(let title, _):
+		case .updateTime(let title, _),
+			 .newsSources(let title, _):
 			return title
 		}
 	}
@@ -99,8 +115,27 @@ extension SettingsViewController: UITableViewDataSource {
 		switch presenter.sections[indexPath.section] {
 		case .updateTime(_, let viewModel):
 			cell = cellForUpdateTimeSection(indexPath: indexPath, viewModel: viewModel)
+		case .newsSources(_, let sources):
+			cell = cellForSourcesListSection(indexPath: indexPath, sources: sources)
 		}
 
 		return cell ?? UITableViewCell()
+	}
+}
+
+// MARK: - UITableViewDelegate
+
+extension SettingsViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: false)
+
+		let section = presenter.sections[indexPath.section]
+
+		switch section {
+		case .newsSources:
+			presenter.selectSourceAtIndex(indexPath.row)
+		default:
+			break
+		}
 	}
 }

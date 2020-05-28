@@ -101,7 +101,6 @@ extension NewsListPresenter: NewsListPresenterProtocol {
 extension NewsListPresenter: NewsListInteractorDelegate {
 	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateNews news: [News]) {
 		let readNewsLinks = interactor.readNewsLinks
-		let shouldShowSource = settingsProvider.shouldShowSource
 		let openedNews = self.news.filter { $0.isOpen }.reduce(into: Set<String>()) { (set, viewModel) in
 			set.insert(viewModel.link)
 		}
@@ -110,7 +109,6 @@ extension NewsListPresenter: NewsListInteractorDelegate {
 			let isRead = readNewsLinks.contains($0.link)
 			let isOpened = openedNews.contains($0.link)
 			return self.newsViewModelFactory.makeNewsViewModel(news: $0,
-															   shouldShowSource: shouldShowSource,
 															   isRead: isRead,
 															   isOpen: isOpened)
 		}
@@ -126,11 +124,7 @@ extension NewsListPresenter: NewsListInteractorDelegate {
 
 extension NewsListPresenter: SettingsProviderDelegate {
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeUpdatePeriod updatePeriod: TimeInterval) {
-		
-	}
-
-	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeShowingSourcePolicy shouldShowSource: Bool) {
-		delegate?.updateNewsList()
+		reminder.remind(timeInterval: updatePeriod)
 	}
 
 	func settingsService(_ settingsService: SettingsServiceProtocol,

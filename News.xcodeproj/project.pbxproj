@@ -66,6 +66,10 @@
 		020BEABB247F8DB600173AE5 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */; };
 		020BEABC247F8DB600173AE5 /* SettingsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */; };
 		020BEABE247F8FCC00173AE5 /* SettingsDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEABD247F8FCC00173AE5 /* SettingsDependencyContainer.swift */; };
+		020BEAC1247F940300173AE5 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC0247F940300173AE5 /* SettingsSection.swift */; };
+		020BEAC4247F957500173AE5 /* UpdateTimeSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC3247F957500173AE5 /* UpdateTimeSettingsViewModel.swift */; };
+		020BEAC6247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC5247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift */; };
+		020BEAC8247F9AC000173AE5 /* UpdateTimeSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAC7247F9AC000173AE5 /* UpdateTimeSettingsCell.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -203,6 +207,10 @@
 		020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterProtocol.swift; sourceTree = "<group>"; };
 		020BEABD247F8FCC00173AE5 /* SettingsDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDependencyContainer.swift; sourceTree = "<group>"; };
+		020BEAC0247F940300173AE5 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		020BEAC3247F957500173AE5 /* UpdateTimeSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTimeSettingsViewModel.swift; sourceTree = "<group>"; };
+		020BEAC5247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTimeSettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		020BEAC7247F9AC000173AE5 /* UpdateTimeSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTimeSettingsCell.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -544,6 +552,7 @@
 				020BEAAA247F8DB600173AE5 /* Builder */,
 				020BEAAC247F8DB600173AE5 /* Interactor */,
 				020BEAB0247F8DB600173AE5 /* Router */,
+				020BEAC2247F941500173AE5 /* Entity */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -562,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				020BEAA9247F8DB600173AE5 /* SettingsViewController.swift */,
+				020BEAC7247F9AC000173AE5 /* UpdateTimeSettingsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -591,6 +601,16 @@
 				020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		020BEAC2247F941500173AE5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAC0247F940300173AE5 /* SettingsSection.swift */,
+				020BEAC5247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift */,
+				020BEAC3247F957500173AE5 /* UpdateTimeSettingsViewModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		0280FC1D246F3067007973D9 = {
@@ -1121,9 +1141,11 @@
 				020BEA622473263D00173AE5 /* NewsListDependencyContainer.swift in Sources */,
 				020BEA9B247D9E8C00173AE5 /* WebInteractor.swift in Sources */,
 				020BEA412471E58100173AE5 /* NewsListInteractor.swift in Sources */,
+				020BEAC6247F95A100173AE5 /* UpdateTimeSettingsViewModelProtocol.swift in Sources */,
 				020BEA6A24796B8500173AE5 /* NewsParserFactoryProtocol.swift in Sources */,
 				020BEA5C2473240700173AE5 /* NewsViewModelFactory.swift in Sources */,
 				020BEA422471E58100173AE5 /* NewsListInteractorProtocol.swift in Sources */,
+				020BEAC8247F9AC000173AE5 /* UpdateTimeSettingsCell.swift in Sources */,
 				020BEAB5247F8DB600173AE5 /* SettingsPresenter.swift in Sources */,
 				020BEAB6247F8DB600173AE5 /* SettingsViewController.swift in Sources */,
 				020BEA95247D9E8C00173AE5 /* WebPresenterProtocol.swift in Sources */,
@@ -1132,8 +1154,10 @@
 				02AA76A32470386400A06904 /* TabBarPresenterProtocol.swift in Sources */,
 				020BEABB247F8DB600173AE5 /* SettingsRouter.swift in Sources */,
 				02AA76A82470386400A06904 /* TabBarInteractorProtocol.swift in Sources */,
+				020BEAC1247F940300173AE5 /* SettingsSection.swift in Sources */,
 				020BEA402471E58100173AE5 /* NewsListInteractorDelegate.swift in Sources */,
 				020BEA5124731B1600173AE5 /* NewsViewModel.swift in Sources */,
+				020BEAC4247F957500173AE5 /* UpdateTimeSettingsViewModel.swift in Sources */,
 				020BEA6C24796B8E00173AE5 /* NewsParserFactory.swift in Sources */,
 				020BEA97247D9E8C00173AE5 /* WebViewController.swift in Sources */,
 				0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */,

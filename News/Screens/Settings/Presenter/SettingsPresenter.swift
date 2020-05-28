@@ -17,18 +17,24 @@ class SettingsPresenter {
     private let interactor: SettingsInteractorProtocol
     private let router: SettingsRouterProtocol
 
+	private let updateTimeViewModel: UpdateTimeSettingsViewModelProtocol
+
     // MARK: - Construction
 
-    init(interactor: SettingsInteractorProtocol, router: SettingsRouterProtocol) {
+    init(interactor: SettingsInteractorProtocol, router: SettingsRouterProtocol,
+		 updateTimeViewModel: UpdateTimeSettingsViewModelProtocol) {
         self.interactor = interactor
         self.router = router
+		self.updateTimeViewModel = updateTimeViewModel
     }
 }
 
 // MARK: - SettingsPresenterProtocol
 
 extension SettingsPresenter: SettingsPresenterProtocol {
-
+	var sections: [SettingsSection] {
+		return [SettingsSection.updateTime(title: "Update period", viewModel: updateTimeViewModel)]
+	}
 }
 
 // MARK: - SettingsInteractorDelegate

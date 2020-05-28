@@ -26,7 +26,10 @@ class SettingsBuilder {
         let interactor = SettingsInteractor()
         let router = SettingsRouter()
 
-        let presenter = SettingsPresenter(interactor: interactor, router: router)
+		let updateTimeViewModel = dependencyContainer.makeUpdateTimeSettingsViewModel()
+		let presenter = SettingsPresenter(interactor: interactor,
+										  router: router,
+										  updateTimeViewModel: updateTimeViewModel)
         let viewController = SettingsViewController(presenter: presenter)
 
         interactor.delegate = presenter

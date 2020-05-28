@@ -17,4 +17,10 @@ class SettingsDependencyContainer {
 	init(tabBarDependencyContainer: TabBarDependencyContainer) {
 		self.tabBarDependencyContainer = tabBarDependencyContainer
 	}
+
+	// MARK: - Methods
+
+	func makeUpdateTimeSettingsViewModel() -> UpdateTimeSettingsViewModelProtocol {
+		return UpdateTimeSettingsViewModel(settingsService: tabBarDependencyContainer.settingsService)
+	}
 }

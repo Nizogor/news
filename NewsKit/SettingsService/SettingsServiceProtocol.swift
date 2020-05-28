@@ -12,7 +12,7 @@ public protocol SettingsProviderDelegate: class {
 	func settingsService(_ settingsService: SettingsServiceProtocol, didChangeDisabledNewsSources newsSources: Set<String>)
 }
 
-public protocol SettingsProviderProtocol {
+public protocol SettingsProviderProtocol: class {
 	var updatePeriod: TimeInterval { get }
 	var shouldShowSource: Bool { get }
 	var disabledNewsSources: Set<String> { get }

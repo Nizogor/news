@@ -7,5 +7,5 @@
 //
 
 protocol SettingsPresenterProtocol {
-
+	var sections: [SettingsSection] { get }
 }

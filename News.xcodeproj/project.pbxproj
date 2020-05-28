@@ -55,6 +55,16 @@
 		020BEA9D247D9E8C00173AE5 /* WebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA93247D9E8B00173AE5 /* WebRouter.swift */; };
 		020BEAA0247DC03800173AE5 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA9F247DC03800173AE5 /* Reminder.swift */; };
 		020BEAA2247DC08C00173AE5 /* ReminderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAA1247DC08C00173AE5 /* ReminderProtocol.swift */; };
+		020BEAB3247F8DB600173AE5 /* SettingsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAA5247F8DB600173AE5 /* SettingsPresenterProtocol.swift */; };
+		020BEAB4247F8DB600173AE5 /* SettingsPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAA6247F8DB600173AE5 /* SettingsPresenterDelegate.swift */; };
+		020BEAB5247F8DB600173AE5 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAA7247F8DB600173AE5 /* SettingsPresenter.swift */; };
+		020BEAB6247F8DB600173AE5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAA9247F8DB600173AE5 /* SettingsViewController.swift */; };
+		020BEAB7247F8DB600173AE5 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAAB247F8DB600173AE5 /* SettingsBuilder.swift */; };
+		020BEAB8247F8DB600173AE5 /* SettingsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAAD247F8DB600173AE5 /* SettingsInteractorProtocol.swift */; };
+		020BEAB9247F8DB600173AE5 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAAE247F8DB600173AE5 /* SettingsInteractor.swift */; };
+		020BEABA247F8DB600173AE5 /* SettingsInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAAF247F8DB600173AE5 /* SettingsInteractorDelegate.swift */; };
+		020BEABB247F8DB600173AE5 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */; };
+		020BEABC247F8DB600173AE5 /* SettingsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -181,6 +191,16 @@
 		020BEA93247D9E8B00173AE5 /* WebRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRouter.swift; sourceTree = "<group>"; };
 		020BEA9F247DC03800173AE5 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		020BEAA1247DC08C00173AE5 /* ReminderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderProtocol.swift; sourceTree = "<group>"; };
+		020BEAA5247F8DB600173AE5 /* SettingsPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenterProtocol.swift; sourceTree = "<group>"; };
+		020BEAA6247F8DB600173AE5 /* SettingsPresenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenterDelegate.swift; sourceTree = "<group>"; };
+		020BEAA7247F8DB600173AE5 /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		020BEAA9247F8DB600173AE5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		020BEAAB247F8DB600173AE5 /* SettingsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		020BEAAD247F8DB600173AE5 /* SettingsInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractorProtocol.swift; sourceTree = "<group>"; };
+		020BEAAE247F8DB600173AE5 /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		020BEAAF247F8DB600173AE5 /* SettingsInteractorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractorDelegate.swift; sourceTree = "<group>"; };
+		020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterProtocol.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -514,6 +534,63 @@
 			path = AlarmService;
 			sourceTree = "<group>";
 		};
+		020BEAA3247F8DB600173AE5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAA4247F8DB600173AE5 /* Presenter */,
+				020BEAA8247F8DB600173AE5 /* View */,
+				020BEAAA247F8DB600173AE5 /* Builder */,
+				020BEAAC247F8DB600173AE5 /* Interactor */,
+				020BEAB0247F8DB600173AE5 /* Router */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		020BEAA4247F8DB600173AE5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAA5247F8DB600173AE5 /* SettingsPresenterProtocol.swift */,
+				020BEAA6247F8DB600173AE5 /* SettingsPresenterDelegate.swift */,
+				020BEAA7247F8DB600173AE5 /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		020BEAA8247F8DB600173AE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAA9247F8DB600173AE5 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		020BEAAA247F8DB600173AE5 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAAB247F8DB600173AE5 /* SettingsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		020BEAAC247F8DB600173AE5 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAAD247F8DB600173AE5 /* SettingsInteractorProtocol.swift */,
+				020BEAAE247F8DB600173AE5 /* SettingsInteractor.swift */,
+				020BEAAF247F8DB600173AE5 /* SettingsInteractorDelegate.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		020BEAB0247F8DB600173AE5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */,
+				020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		0280FC1D246F3067007973D9 = {
 			isa = PBXGroup;
 			children = (
@@ -576,9 +653,9 @@
 			children = (
 				020BEA9E247DC00500173AE5 /* AlarmService */,
 				020BEA71247ACE2200173AE5 /* NewsSourcesProvider */,
+				020BE9E4247083F900173AE5 /* SaveService */,
 				020BEA47247304D200173AE5 /* SettingsService */,
 				02AA7670246FD9CD00A06904 /* Network */,
-				020BE9E4247083F900173AE5 /* SaveService */,
 				02AA7654246FD9BC00A06904 /* NewsKit.h */,
 				02AA7655246FD9BC00A06904 /* Info.plist */,
 			);
@@ -642,6 +719,7 @@
 				02AA76932470386400A06904 /* TabBar */,
 				020BEA2B2471E58100173AE5 /* NewsList */,
 				020BEA84247D9E8B00173AE5 /* Web */,
+				020BEAA3247F8DB600173AE5 /* Settings */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1030,8 +1108,11 @@
 				020BEA3D2471E58100173AE5 /* NewsListPresenterProtocol.swift in Sources */,
 				02AA76AB2470386400A06904 /* TabBarRouterProtocol.swift in Sources */,
 				020BEA432471E58100173AE5 /* NewsListRouterProtocol.swift in Sources */,
+				020BEAB3247F8DB600173AE5 /* SettingsPresenterProtocol.swift in Sources */,
 				020BEA3C2471E58100173AE5 /* NewsListPresenter.swift in Sources */,
 				02AA76A42470386400A06904 /* TabBarPresenter.swift in Sources */,
+				020BEABA247F8DB600173AE5 /* SettingsInteractorDelegate.swift in Sources */,
+				020BEAB4247F8DB600173AE5 /* SettingsPresenterDelegate.swift in Sources */,
 				020BEA3B2471E58100173AE5 /* NewsListPresenterDelegate.swift in Sources */,
 				020BEA622473263D00173AE5 /* NewsListDependencyContainer.swift in Sources */,
 				020BEA9B247D9E8C00173AE5 /* WebInteractor.swift in Sources */,
@@ -1039,10 +1120,13 @@
 				020BEA6A24796B8500173AE5 /* NewsParserFactoryProtocol.swift in Sources */,
 				020BEA5C2473240700173AE5 /* NewsViewModelFactory.swift in Sources */,
 				020BEA422471E58100173AE5 /* NewsListInteractorProtocol.swift in Sources */,
+				020BEAB5247F8DB600173AE5 /* SettingsPresenter.swift in Sources */,
+				020BEAB6247F8DB600173AE5 /* SettingsViewController.swift in Sources */,
 				020BEA95247D9E8C00173AE5 /* WebPresenterProtocol.swift in Sources */,
 				020BEA96247D9E8C00173AE5 /* WebPresenterDelegate.swift in Sources */,
 				02AA76A92470386400A06904 /* TabBarInteractorDelegate.swift in Sources */,
 				02AA76A32470386400A06904 /* TabBarPresenterProtocol.swift in Sources */,
+				020BEABB247F8DB600173AE5 /* SettingsRouter.swift in Sources */,
 				02AA76A82470386400A06904 /* TabBarInteractorProtocol.swift in Sources */,
 				020BEA402471E58100173AE5 /* NewsListInteractorDelegate.swift in Sources */,
 				020BEA5124731B1600173AE5 /* NewsViewModel.swift in Sources */,
@@ -1054,13 +1138,17 @@
 				02AA764C246F37C600A06904 /* DependencyContainer.swift in Sources */,
 				020BEA9A247D9E8C00173AE5 /* WebInteractorDelegate.swift in Sources */,
 				020BEA94247D9E8C00173AE5 /* WebPresenter.swift in Sources */,
+				020BEAB9247F8DB600173AE5 /* SettingsInteractor.swift in Sources */,
 				02AA76AA2470386400A06904 /* TabBarInteractor.swift in Sources */,
 				020BEA98247D9E8C00173AE5 /* WebBuilder.swift in Sources */,
 				020BEA3F2471E58100173AE5 /* NewsListBuilder.swift in Sources */,
+				020BEAB8247F8DB600173AE5 /* SettingsInteractorProtocol.swift in Sources */,
 				020BEA70247AC5F100173AE5 /* NewsTableViewCell.swift in Sources */,
+				020BEABC247F8DB600173AE5 /* SettingsRouterProtocol.swift in Sources */,
 				020BEA9D247D9E8C00173AE5 /* WebRouter.swift in Sources */,
 				020BEA4F247313B400173AE5 /* News.swift in Sources */,
 				02AA76A62470386400A06904 /* TabBarViewController.swift in Sources */,
+				020BEAB7247F8DB600173AE5 /* SettingsBuilder.swift in Sources */,
 				020BEA9C247D9E8C00173AE5 /* WebRouterProtocol.swift in Sources */,
 				02AA76A52470386400A06904 /* TabBarPresenterDelegate.swift in Sources */,
 				020BEA442471E58100173AE5 /* NewsListRouter.swift in Sources */,

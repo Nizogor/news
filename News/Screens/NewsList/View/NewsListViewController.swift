@@ -25,6 +25,8 @@ class NewsListViewController: UIViewController {
         self.presenter = presenter
 
         super.init(nibName: nil, bundle: nil)
+
+		tabBarItem = UITabBarItem(title: screenName, image: #imageLiteral(resourceName: "news_gray"), selectedImage: #imageLiteral(resourceName: "news_black"))
     }
 
     required init?(coder: NSCoder) {
@@ -38,7 +40,6 @@ class NewsListViewController: UIViewController {
 
 		setupView()
 		setupNavigationItem()
-		setupTabBarItem()
 		setupTableView()
     }
 
@@ -50,10 +51,6 @@ class NewsListViewController: UIViewController {
 
 	private func setupNavigationItem() {
 		title = screenName
-	}
-
-	private func setupTabBarItem() {
-		tabBarItem = UITabBarItem(title: screenName, image: #imageLiteral(resourceName: "news_gray"), selectedImage: #imageLiteral(resourceName: "news_black"))
 	}
 
 	private func setupTableView() {

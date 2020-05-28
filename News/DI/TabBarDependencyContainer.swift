@@ -17,4 +17,9 @@ class TabBarDependencyContainer {
 		let dependencyContainer = NewsListDependencyContainer(tabBarDependencyContainer: self)
 		return NewsListBuilder(dependencyContainer: dependencyContainer)
 	}
+
+	func makeSettingsBuilder() -> SettingsBuilder {
+		let dependencyContainer = SettingsDependencyContainer(tabBarDependencyContainer: self)
+		return SettingsBuilder(dependencyContainer: dependencyContainer)
+	}
 }

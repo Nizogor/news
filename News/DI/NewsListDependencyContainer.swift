@@ -28,6 +28,8 @@ class NewsListDependencyContainer {
 		newsViewModelFactory = NewsViewModelFactory(networkService: networkService)
 	}
 
+	// MARK: - Methods
+
 	func makeWebBuilder() -> WebBuilder {
 		return WebBuilder()
 	}

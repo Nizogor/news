@@ -24,9 +24,10 @@ class TabBarBuilder {
     
     func buildModule() -> UITabBarController {
 		let newsListBuilder = dependencyContainer.makeNewsListBuilder()
+		let settingsBuilder = dependencyContainer.makeSettingsBuilder()
 
         let interactor = TabBarInteractor()
-		let router = TabBarRouter(newsListBuilder: newsListBuilder)
+		let router = TabBarRouter(newsListBuilder: newsListBuilder, settingsBuilder: settingsBuilder)
 
         let presenter = TabBarPresenter(interactor: interactor, router: router)
         let viewController = TabBarViewController(presenter: presenter)

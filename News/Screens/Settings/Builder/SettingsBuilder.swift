@@ -10,9 +10,19 @@ import UIKit
 
 class SettingsBuilder {
 
+	// MARK: - Private Properties
+
+	private let dependencyContainer: SettingsDependencyContainer
+
+	// MARK: - Construction
+
+	init(dependencyContainer: SettingsDependencyContainer) {
+		self.dependencyContainer = dependencyContainer
+	}
+
     // MARK: - Methods
     
-    func buildModule() -> UIViewController {
+	func buildModule() -> UIViewController {
         let interactor = SettingsInteractor()
         let router = SettingsRouter()
 

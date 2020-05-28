@@ -19,11 +19,14 @@ class TabBarRouter {
 	// MARK: - Private Properties
 
 	private let newsListBuilder: NewsListBuilder
+	private let settingsBuilder: SettingsBuilder
 
 	// MARK: - Construction
 
-	init(newsListBuilder: NewsListBuilder) {
+	init(newsListBuilder: NewsListBuilder,
+		 settingsBuilder: SettingsBuilder) {
 		self.newsListBuilder = newsListBuilder
+		self.settingsBuilder = settingsBuilder
 	}
 
 	// MARK: - Private Methods
@@ -32,7 +35,10 @@ class TabBarRouter {
 		let newsListViewController = newsListBuilder.buildModule()
 		let newsListNavigationController = UINavigationController(rootViewController: newsListViewController)
 
-		viewController?.setViewControllers([newsListNavigationController], animated: false)
+		let settingsViewController = settingsBuilder.buildModule()
+		let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
+
+		viewController?.setViewControllers([newsListNavigationController, settingsNavigationController], animated: false)
 	}
 }
 

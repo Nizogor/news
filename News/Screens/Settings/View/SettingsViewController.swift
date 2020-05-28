@@ -14,12 +14,16 @@ class SettingsViewController: UIViewController {
 
     private let presenter: SettingsPresenterProtocol
 
+	private let screenName = "Settings"
+
     // MARK: - Construction
 
     required init(presenter: SettingsPresenterProtocol) {
         self.presenter = presenter
 
         super.init(nibName: nil, bundle: nil)
+
+		tabBarItem = UITabBarItem(title: screenName, image: #imageLiteral(resourceName: "gear_gray"), selectedImage: #imageLiteral(resourceName: "gear_black"))
     }
 
     required init?(coder: NSCoder) {
@@ -30,7 +34,15 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+		setupNavigationItem()
     }
+
+	// MARK: - Private Methods
+
+	private func setupNavigationItem() {
+		navigationItem.title = screenName
+	}
 }
 
 // MARK: - SettingsPresenterDelegate

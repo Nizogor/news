@@ -65,6 +65,7 @@
 		020BEABA247F8DB600173AE5 /* SettingsInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAAF247F8DB600173AE5 /* SettingsInteractorDelegate.swift */; };
 		020BEABB247F8DB600173AE5 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */; };
 		020BEABC247F8DB600173AE5 /* SettingsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */; };
+		020BEABE247F8FCC00173AE5 /* SettingsDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEABD247F8FCC00173AE5 /* SettingsDependencyContainer.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -201,6 +202,7 @@
 		020BEAAF247F8DB600173AE5 /* SettingsInteractorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractorDelegate.swift; sourceTree = "<group>"; };
 		020BEAB1247F8DB600173AE5 /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		020BEAB2247F8DB600173AE5 /* SettingsRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterProtocol.swift; sourceTree = "<group>"; };
+		020BEABD247F8FCC00173AE5 /* SettingsDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDependencyContainer.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 				02AA764B246F37C600A06904 /* DependencyContainer.swift */,
 				020BEA452472FC9B00173AE5 /* TabBarDependencyContainer.swift */,
 				020BEA612473263D00173AE5 /* NewsListDependencyContainer.swift */,
+				020BEABD247F8FCC00173AE5 /* SettingsDependencyContainer.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -718,8 +721,8 @@
 			children = (
 				02AA76932470386400A06904 /* TabBar */,
 				020BEA2B2471E58100173AE5 /* NewsList */,
-				020BEA84247D9E8B00173AE5 /* Web */,
 				020BEAA3247F8DB600173AE5 /* Settings */,
+				020BEA84247D9E8B00173AE5 /* Web */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1108,6 +1111,7 @@
 				020BEA3D2471E58100173AE5 /* NewsListPresenterProtocol.swift in Sources */,
 				02AA76AB2470386400A06904 /* TabBarRouterProtocol.swift in Sources */,
 				020BEA432471E58100173AE5 /* NewsListRouterProtocol.swift in Sources */,
+				020BEABE247F8FCC00173AE5 /* SettingsDependencyContainer.swift in Sources */,
 				020BEAB3247F8DB600173AE5 /* SettingsPresenterProtocol.swift in Sources */,
 				020BEA3C2471E58100173AE5 /* NewsListPresenter.swift in Sources */,
 				02AA76A42470386400A06904 /* TabBarPresenter.swift in Sources */,

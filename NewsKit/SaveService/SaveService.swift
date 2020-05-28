@@ -42,37 +42,26 @@ public class SaveService {
 	// MARK: - Private Methods
 
 	private func setupNotificationToken() {
-		queue.async { [weak self] in
-			autoreleasepool {
-				do {
-					guard let self = self else { return }
-
-					self.notificationToken = try Realm().objects(NewsObject.self)
-						.observe(on: self.queue, { [weak self] changes in
-							switch changes {
-							case .initial(let results):
-								self?.notifyDelegate(results)
-							case .update(let results, _, _, _):
-								self?.notifyDelegate(results)
-							case .error(let error):
-								print(error.localizedDescription)
-							}
-						})
-				} catch {
-					print(error.localizedDescription)
+		do {
+			notificationToken = try Realm().objects(NewsObject.self)
+				.observe { [weak self] changes in
+					switch changes {
+					case .initial(let results):
+						self?.notifyDelegate(results)
+					case .update(let results, _, _, _):
+						self?.notifyDelegate(results)
+					case .error(let error):
+						print(error.localizedDescription)
+					}
 				}
-			}
+		} catch {
+			print(error.localizedDescription)
 		}
 	}
 
 	private func notifyDelegate(_ results: Results<NewsObject>) {
 		let news: Array<NewsDTO> = results.map { self.dtoFromObject($0) }
-
-		DispatchQueue.main.async { [weak self] in
-			if let self = self {
-				self.delegate?.saveService(self, didUpdateNews: news)
-			}
-		}
+		delegate?.saveService(self, didUpdateNews: news)
 	}
 
 	// MARK: - Mapping

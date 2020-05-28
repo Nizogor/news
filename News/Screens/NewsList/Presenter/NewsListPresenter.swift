@@ -22,6 +22,7 @@ class NewsListPresenter {
 	private let newsSourcesProvider: NewsSourcesProviderProtocol
 	private let settingsProvider: SettingsProviderProtocol
 	private let newsViewModelFactory: NewsViewModelFactoryProtocol
+	private let reminder: ReminderProtocol
 
 	private var news = [NewsPresenterViewModelProtocol]()
 	private var openedNewsCells = Set<String>()
@@ -32,13 +33,15 @@ class NewsListPresenter {
 		 router: NewsListRouterProtocol,
 		 newsSourcesProvider: NewsSourcesProviderProtocol,
 		 settingsProvider: SettingsProviderProtocol,
-		 newsViewModelFactory: NewsViewModelFactoryProtocol) {
+		 newsViewModelFactory: NewsViewModelFactoryProtocol,
+		 reminder: ReminderProtocol) {
         self.interactor = interactor
         self.router = router
 
 		self.newsSourcesProvider = newsSourcesProvider
 		self.settingsProvider = settingsProvider
 		self.newsViewModelFactory = newsViewModelFactory
+		self.reminder = reminder
 
 		setup()
     }
@@ -53,6 +56,9 @@ class NewsListPresenter {
 		settingsProvider.addDelegate(self)
 
 		update()
+
+		reminder.delegate = self
+		reminder.remind(timeInterval: settingsProvider.updatePeriod)
 	}
 
 	private func update() {
@@ -96,7 +102,7 @@ extension NewsListPresenter: NewsListInteractorDelegate {
 	func newsListInteractor(_ interactor: NewsListInteractorProtocol, didUpdateNews news: [News]) {
 		let readNewsLinks = interactor.readNewsLinks
 		let shouldShowSource = settingsProvider.shouldShowSource
-		let openedNews = self.news.reduce(into: Set<String>()) { (set, viewModel) in
+		let openedNews = self.news.filter { $0.isOpen }.reduce(into: Set<String>()) { (set, viewModel) in
 			set.insert(viewModel.link)
 		}
 
@@ -111,6 +117,8 @@ extension NewsListPresenter: NewsListInteractorDelegate {
 		.sorted { $0.date > $1.date }
 
 		delegate?.updateNewsList()
+
+		print("Update \(news.count)")
 	}
 }
 
@@ -127,6 +135,14 @@ extension NewsListPresenter: SettingsProviderDelegate {
 
 	func settingsService(_ settingsService: SettingsServiceProtocol,
 						 didChangeDisabledNewsSources newsSources: Set<String>) {
+		update()
+	}
+}
+
+// MARK: - ReminderDelegate
+
+extension NewsListPresenter: ReminderDelegate {
+	func reminderDidNotificate() {
 		update()
 	}
 }

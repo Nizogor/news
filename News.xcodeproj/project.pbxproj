@@ -53,6 +53,8 @@
 		020BEA9B247D9E8C00173AE5 /* WebInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA90247D9E8B00173AE5 /* WebInteractor.swift */; };
 		020BEA9C247D9E8C00173AE5 /* WebRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA92247D9E8B00173AE5 /* WebRouterProtocol.swift */; };
 		020BEA9D247D9E8C00173AE5 /* WebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA93247D9E8B00173AE5 /* WebRouter.swift */; };
+		020BEAA0247DC03800173AE5 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEA9F247DC03800173AE5 /* Reminder.swift */; };
+		020BEAA2247DC08C00173AE5 /* ReminderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BEAA1247DC08C00173AE5 /* ReminderProtocol.swift */; };
 		0280FC2A246F3067007973D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280FC29246F3067007973D9 /* AppDelegate.swift */; };
 		0280FC33246F306A007973D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC32246F306A007973D9 /* Assets.xcassets */; };
 		0280FC36246F306A007973D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0280FC34246F306A007973D9 /* LaunchScreen.storyboard */; };
@@ -177,6 +179,8 @@
 		020BEA90247D9E8B00173AE5 /* WebInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebInteractor.swift; sourceTree = "<group>"; };
 		020BEA92247D9E8B00173AE5 /* WebRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRouterProtocol.swift; sourceTree = "<group>"; };
 		020BEA93247D9E8B00173AE5 /* WebRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRouter.swift; sourceTree = "<group>"; };
+		020BEA9F247DC03800173AE5 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		020BEAA1247DC08C00173AE5 /* ReminderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderProtocol.swift; sourceTree = "<group>"; };
 		0280FC26246F3067007973D9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0280FC29246F3067007973D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0280FC32246F306A007973D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -501,6 +505,15 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		020BEA9E247DC00500173AE5 /* AlarmService */ = {
+			isa = PBXGroup;
+			children = (
+				020BEAA1247DC08C00173AE5 /* ReminderProtocol.swift */,
+				020BEA9F247DC03800173AE5 /* Reminder.swift */,
+			);
+			path = AlarmService;
+			sourceTree = "<group>";
+		};
 		0280FC1D246F3067007973D9 = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +574,7 @@
 		02AA7653246FD9BC00A06904 /* NewsKit */ = {
 			isa = PBXGroup;
 			children = (
+				020BEA9E247DC00500173AE5 /* AlarmService */,
 				020BEA71247ACE2200173AE5 /* NewsSourcesProvider */,
 				020BEA47247304D200173AE5 /* SettingsService */,
 				02AA7670246FD9CD00A06904 /* Network */,
@@ -1081,6 +1095,8 @@
 				020BEA73247ACE3600173AE5 /* NewsSourcesProviderProtocol.swift in Sources */,
 				02AA767C246FE3C100A06904 /* NewsParserProtocol.swift in Sources */,
 				020BEA76247ACEA300173AE5 /* NewsSource.swift in Sources */,
+				020BEAA2247DC08C00173AE5 /* ReminderProtocol.swift in Sources */,
+				020BEAA0247DC03800173AE5 /* Reminder.swift in Sources */,
 				02AA7676246FDF2800A06904 /* NewsAPIModel.swift in Sources */,
 				020BE9EE2470870900173AE5 /* NewsDTO.swift in Sources */,
 				020BE9EB2470855C00173AE5 /* NewsObject.swift in Sources */,

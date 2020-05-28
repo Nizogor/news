@@ -18,6 +18,7 @@ class NewsListDependencyContainer {
 	let newsParserFactory: NewsParserFactoryProtocol = NewsParserFactory()
 	let saveService: SaveServiceProtocol = SaveService()
 	let newsViewModelFactory: NewsViewModelFactoryProtocol
+	let reminder: ReminderProtocol = Reminder()
 
 	// MARK: - Construction
 
